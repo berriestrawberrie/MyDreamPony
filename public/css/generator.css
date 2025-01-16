@@ -1,0 +1,25 @@
+
+
+.webpage{
+    display: flex !important;
+    justify-content: space-evenly !important;
+  
+}
+
+
+#Type{
+    width: 200px;
+    background-color: white;
+    border: 2px solid black;
+    text-align: center;
+}
+
+button{
+    margin-top: 10px;
+    width: 200px !important;
+    border-radius: 10px !important;
+}
+
+button:hover{
+    filter: brightness(180%);
+}

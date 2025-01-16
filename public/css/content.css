@@ -1,0 +1,26 @@
+.sideinner{
+    background-color: #FFFFFF70;
+    height: 600px;
+    border-radius: 20px;
+    border: 1px solid var(--dark);
+    padding: 20px;
+    
+}
+
+.header{
+    background-color:#FFFFFF70;
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid var(--dark);
+    margin-bottom: 20px;
+    
+}
+
+.headerbody{
+    background-color:#FFFFFF70;
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid var(--dark);
+    
+
+}

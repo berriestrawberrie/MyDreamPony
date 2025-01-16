@@ -1,0 +1,108 @@
+:root{
+    --sky: #CAF5EC;
+    --midsky: #B5E8ED;
+    --dark: #000058;
+    --high: #FFFFFF;
+}
+*{
+    font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
+    color: var(--dark);
+}
+h1{
+    text-align: center;
+}
+p{
+    font-size: 20px;
+    text-align: justify;
+}
+
+button{
+    width: 300px;
+    height: 50px;
+    font-size: 22px;
+    font-weight: bold;
+    background-color: var(--dark);
+    color: var(--high) !important;
+    border-radius: 20px;
+}
+.sidebar a:hover{
+    filter: brightness(180%);
+    font-weight:normal;
+}
+
+body { background:transparent; }
+body:after {
+	content:"";
+	position:fixed;
+	left:0;
+	top:0;
+	right:0;
+	bottom:0;
+	z-index:-1;
+	display:block;
+	background:url(http://127.0.0.1:8000/storage/meadow_4x.png) no-repeat 50% 50%;
+	background-size:cover;
+}
+
+.webpage{
+    width: 1000px;
+    display: absolute;
+    margin-right: auto;
+    margin-left: auto;
+
+
+}
+
+.banner{
+    width: 1000px;
+    height: 500px;
+
+    border: 2px solid var(--dark);
+    border-radius: 20px;
+}
+
+nav{
+    position: absolute;
+    height: 30px;
+    width: 1000px;
+    background-color: var(--dark);
+    top: 510px;
+    border-radius: 0 0 20px 20px;
+    border: 2px solid var(--dark);
+    
+
+}
+
+nav ul{
+    height: 100px;
+    list-style-type: none;
+    display: flex;
+   margin-top: -45px;
+    justify-content: space-evenly;
+    
+
+}
+
+
+nav img{
+    width: 120px;
+}
+nav a:hover{
+    filter: brightness(150%);
+}
+
+.avatar{
+    margin-top: -390px;
+}
+.avatar img{
+
+    width: 300px;
+
+}
+
+.pethead{
+    margin-top: -391px;
+    margin-left: 700px;
+    overflow: hidden;
+    width: 301px;
+}
