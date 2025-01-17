@@ -7,7 +7,6 @@ use App\Models\Item;
 use App\Models\Pony;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\UserItem;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
@@ -33,7 +32,7 @@ class UserController extends Controller
     public function myInventory()
     {
         $user = Auth::user();
-        $inventory = UserItem::where('userid', $user["id"])->get();
+        $inventory = User::where('id', $user["id"])->get();
 
         $itemlist = explode(',', $inventory[0]["itemid"]);
         $qtylist = explode(',', $inventory[0]["qty"]);
@@ -138,7 +137,7 @@ class UserController extends Controller
             $rare_stock[$i]["stock"] = rand(1, 3);
         }
 
-        event(new PurchaseItem());
+
         $user = Auth::user();
 
         $tags = [];
