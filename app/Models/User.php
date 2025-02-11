@@ -21,6 +21,8 @@ class User extends Authenticatable
         'birthday',
         'email',
         'password',
+        'ponygold',
+        'crystalheart',
         'admin',
         'qty',
         'itemid'

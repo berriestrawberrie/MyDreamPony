@@ -40,6 +40,26 @@ class AddItemInventory
         }
         //ITEM IS NOT IN THE USER LIST SO ADD
         else {
+            //CHECK IF USER HAS ITEMS
+            if (!$itemlist) {
+                //ADD QTY OF 1 TO THE END
+                array_push($qtylist, 1);
+                //ADD ITEM ID TO THE ITEM LIST
+                array_push($itemlist, $item);
+                //CONVERT TO STRINGS FOR DB
+                $newqtylist = implode(',', $qtylist);
+                $newitemlist = implode(',', $itemlist);
+            }
+            //IF USER HAS NO ITEMS
+            else {
+                $newqtylist = "1";
+                $newitemlist = $item;
+            }
+
+
+            //UPDATE THE DB
+            User::where('id', $event->user['id'])
+                ->update(['qty' => $newqtylist, 'itemid' => $newitemlist]);
         }
     }
 }
