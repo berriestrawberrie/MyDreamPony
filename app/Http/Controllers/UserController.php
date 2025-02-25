@@ -146,8 +146,11 @@ class UserController extends Controller
             array_push($tags, explode(',', $items[$i]["tags"]));
         }
 
-        return view('explore.' . $npc, compact('user', 'items', 'tags'));
+        return view('explore.' . $npc, compact('user', 'items', 'tags', 'npc'));
     }
-
-    public function npcRestock() {}
+    public function avatardesgin()
+    {
+        $user = Auth::User();
+        return view('templates.dressup', compact('user'));
+    }
 }

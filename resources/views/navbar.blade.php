@@ -18,7 +18,7 @@
     }
     </style>
 <ol >
-    <li> <img src="{{asset('storage/mirror.png')}}"></li>
+    <li> <a href="{{route('avatardesigner')}}"><img src="{{asset('storage/mirror.png')}}"></a></li>
     <li> <a href="{{route('inventory')}}"><img src="{{asset('storage/chest.png')}}" title="Inventory"></a></li>
     <li> <a href="{{route('stable')}}"><img src="{{asset('storage/shoe.png')}}" title="My Stables"></a></li>
     <li> <a href="{{route('ponygen')}}"><img src="{{asset('storage/crystalheart.png')}}" title="Pony Generator"></a></li>

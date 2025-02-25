@@ -36,7 +36,10 @@
 <div id="shopnpc">
     <img src="{{asset('storage/kitt-folkani.gif')}}" width="500"  margin-left: 20px;">
     <div id="shopowner" class="bubble bubble-bottom-left">This is what the shopowner will say</div>
-    <div id="shopevent"> Something Here</div>
+    <div id="shopevent"> Something Here
+        <a href="/restock/{{$npc}}"><button class="button-8">Restock Shop</button></a>
+        <a href="/unstock/{{$npc}}"><button class="button-8">Set Stock to 0</button></a>
+    </div>
 </div>
 
 <div style="display: flex; flex-wrap: wrap; width: 100%;">
@@ -57,7 +60,7 @@
                 <span style="color: black; font-weight: bold;text-transform:capitalize;">{{$items[$i]["rarity"]}}</span><br>
                 <img src="{{asset('storage/coin.png')}}" width="30px">{{$items[$i]["price"]}} <br>
             
-                    <a href="/purchase/{{$items[$i]["itemid"]}}"><button class="button-8">Purchase </button></a>
+                    <a href="/purchase/{{$items[$i]["npc"]}}/{{$items[$i]["itemid"]}}"><button class="button-8">Purchase </button></a>
             </div><!-- END OF INVENTORY DIV -->
             <div class="hide">  
                 <b>Description:</b>{{$items[$i]["info"]}}<br>
@@ -68,6 +71,7 @@
         </div>
 
         @endif
+        
 
 
     @endfor

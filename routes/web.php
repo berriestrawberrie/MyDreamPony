@@ -40,7 +40,9 @@ Route::get('/beauty', [UserController::class, 'beauty'])->name('beauty');
 
 
 //NPC CONTROLLERS FOR SHOPS ETC...
-Route::get('/purchase/{itemid}', [NPC::class, 'itemPurchase']);
+Route::get('/purchase/{npc}/{itemid}', [NPC::class, 'itemPurchase']);
+Route::get('/restock/{npc}', [NPC::class, 'restockShop']);
+Route::get('/unstock/{npc}', [NPC::class, 'unstockShop']);
 
 //USER WELCOME PAGE
 Route::get('/logged', function () {
@@ -49,6 +51,7 @@ Route::get('/logged', function () {
 Route::get('/test', function () {
     return view('userplay');
 });
+Route::get('/avatardesigner', [UserController::class, 'avatardesgin'])->name('avatardesigner');
 
 
 //LOGOUT
