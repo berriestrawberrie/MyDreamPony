@@ -1,0 +1,129 @@
+@use 'colors';
+@use 'fonts';
+
+
+
+footer{
+    position: fixed;
+    display: flex;
+     justify-content: center;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
+    .goldbanner{
+        width: 100%;
+        background-color: colors.$gold;
+        border-top: 2px solid colors.$brown;
+        border-bottom: 2px solid colors.$brown;
+        overflow: hidden;
+        img{
+            float: left;
+        }
+    }
+    .bannerlight{
+        background-color: colors.$lightgold;
+        height: 4px;
+    }
+}
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+    .bannerlinks{
+        position: absolute;
+        top: -40px;
+    
+        ul{
+            list-style-type: none;
+            display: flex;
+            justify-content: space-evenly;
+            li{
+                margin: 0 10px;
+                a{
+                    transition: transform .3s ease-out;
+                    display: inline-block;
+                }
+                a:hover {
+                    transform: translate(0, -20px);
+                  }
+            }
+        }
+        img{
+            width:50px;
+        }
+    }
+
+    .avatar{
+        display: none;
+   }
+    
+    
+
+  }//END OF MEDIA
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+
+    .bannerlinks{
+        position: absolute;
+        top: -40px;
+    
+        ul{
+            list-style-type: none;
+            display: flex;
+            justify-content: space-evenly;
+            li{
+                margin: 0 20px;
+                a{
+                    transition: transform .3s ease-out;
+                    display: inline-block;
+                }
+                a:hover {
+                    transform: translate(0, -20px);
+                  }
+            }
+        }
+        img{
+            width: 60px;
+        }
+    }   
+    .avatar{
+        display: none;
+   }
+
+  }//END OF MEDIA
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    .avatar{
+        display: flex;
+        max-width: 400px;
+        position: absolute;
+        left: 0;
+        bottom: -300px;
+
+   }
+   
+
+  } 
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    .avatar{
+        max-width: 400px;
+        position: absolute;
+        left: 0;
+        bottom: -300px;
+        
+   }
+
+  } 
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+
+  }
+

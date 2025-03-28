@@ -10,16 +10,27 @@ use App\Http\Controllers\PonyController;
 use Illuminate\Support\Facades\Auth;
 
 //HOMEPAGE
-Route::get('/', function () {
+/*Route::get('/', function () {
     if (Auth::check()) {
         $user = Auth::User();
         return view('templates.logged', compact('user'));
     }
     return view('templates.welcome');
 })->name('home');
+*/
+
+Route::get('/', function () {
+    return view('REDESIGN.redesign');
+});
 
 
-//GUEST PAGES
+//REDESIGN ROUTES
+Route::get('/re-stable', function () {
+    return view('REDESIGN.stables');
+})->name('restable');
+Route::get('/re-ponyprofile', function () {
+    return view('REDESIGN.ponyprofile');
+})->name('reponyprofile');
 
 
 //DYNAMIC SECTION EXAMPLE

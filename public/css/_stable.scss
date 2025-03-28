@@ -1,0 +1,559 @@
+@use 'colors';
+@use 'fonts';
+
+
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+    .stable{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .topstable{
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        &__stablehouse{
+            .house{
+                position: absolute;
+                top: 30px; 
+                left:60px;
+                width: 200px;
+            }
+            .island{
+                width: 100%;
+                width: 320px;   
+
+            }
+        }
+        &__next{
+            width: 60px;
+            margin-top: 10px;
+        }
+        &__next:hover{
+            transform: scale(1.2);
+            translate: 0 -10px;
+        }
+        &__stableboard{
+
+            align-self: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            margin-top: -90px;
+            .boardinfo{
+                position: absolute;
+                top: 20px;
+                left: 40px;
+            }
+            .stableboard{
+                width: 280px;
+            }
+        }
+    }
+    
+    .ponystable{
+        background-color: colors.$accent;
+        width: 100%;
+        min-height: 600px;
+        margin-top: -140px;
+        border-radius: 0;
+        padding: 0;
+        padding-top: 165px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    
+    
+        
+    }
+    
+    
+    /*PONY CARD*/
+    .card{
+        display: flex;
+        flex-direction: column;
+        width: 150px;
+        margin-bottom: 20px;
+        background-color: colors.$gold;
+        border-radius: 10px;
+        border: 2px solid colors.$brown;
+        .cardborder{
+            border: 2px solid colors.$lightgold;
+            border-radius: 10px;
+      
+        }
+        &__status{
+            background-image: url(../images/shine.svg);
+            background-repeat: no-repeat;
+            background-position: right;
+            height: 30px;
+            .statusicon{
+                width: 25px;
+                margin-top: -35px;
+                margin-right: -4px;
+            }
+            h4{
+                text-align: center;
+                margin-top: -10px;
+            }
+        }
+        &__title{
+            height: 40px;
+            text-align: center;
+        }
+        &__pony{
+            height: 120px;
+            background-color: colors.$accent;
+            width: 99%;
+            margin: 0 auto;
+            border-radius: 8px;
+            img{
+                width: 140px;
+     
+            }
+        }
+        &__substatus{
+    
+            display: flex;
+            justify-content: flex-end;
+            align-items: end;
+            height: 25px;
+            .statusicon{
+                width: 30px;
+                margin-bottom: -15px;
+            }
+        }
+    }//END OF CARD
+
+}//END OF MEDIA
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+    .stable{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 100px;
+        max-width: 800px;
+    }
+
+    .topstable{
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        &__stablehouse{
+
+            .house{
+                position: absolute;
+                top: 65px; 
+                left: 110px;
+                width: 380px;
+            }
+            .island{
+                width: 600px;
+                
+
+            }
+        }
+        &__next{
+            width: 60px;
+            margin-top: 10px;
+        }
+        &__next:hover{
+            transform: scale(1.2);
+            translate: 0 -10px;
+        }
+        &__stableboard{
+
+            align-self: center;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            position: relative;
+            margin-top: -150px;
+            .boardinfo{
+                position: absolute;
+                top: 20px;
+                left: 40px;
+            }
+            .stableboard{
+                width: 400px;
+            }
+        }
+    }
+    
+    .ponystable{
+        background-color: colors.$accent;
+        width: 90%;
+        min-height: 600px;
+        margin-top: -140px;
+        border-radius: 20px 20px 0 0;
+        padding: 0;
+        padding-top: 165px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+
+    
+        
+    }
+    
+    
+    /*PONY CARD*/
+    .card{
+        
+        display: flex;
+        flex-direction: column;
+        width: 150px;
+        margin-bottom: 20px;
+        background-color: colors.$gold;
+        border-radius: 10px;
+        border: 2px solid colors.$brown;
+        .cardborder{
+            border: 2px solid colors.$lightgold;
+            border-radius: 10px;
+      
+        }
+        &__status{
+            background-image: url(../images/shine.svg);
+            background-repeat: no-repeat;
+            background-position: right;
+            height: 30px;
+            .statusicon{
+                width: 25px;
+                margin-top: -35px;
+                margin-right: -4px;
+            }
+            h4{
+                text-align: center;
+                margin-top: -10px;
+            }
+        }
+        &__title{
+            height: 40px;
+            text-align: center;
+        }
+        &__pony{
+            height: 120px;
+            background-color: colors.$accent;
+            width: 99%;
+            margin: 0 auto;
+            border-radius: 8px;
+            img{
+                width: 140px;
+            }
+        }
+        &__substatus{
+    
+            display: flex;
+            justify-content: flex-end;
+            align-items: end;
+            height: 20px;
+            .statusicon{
+                width: 30px;
+                margin-bottom: -15px;
+            }
+        }
+    }//END OF CARD
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+    .stable{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        margin-top: 100px;
+        max-width: 800px;
+    }
+
+    .topstable{
+        position: relative;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        &__stablehouse{
+
+            .house{
+                position: absolute;
+                top:85px; 
+                left: 140px;
+                width: 430px;
+            }
+            .island{
+                width: 700px;
+
+            }
+        }
+        &__next{
+            width: 60px;
+        }
+        &__next:hover{
+            transform: scale(1.2);
+            translate: 0 -10px;
+        }
+        &__stableboard{
+   
+            width: 50%;
+            align-self: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-top: -130px;
+            .boardinfo{
+                position: absolute;
+                top: 40px;
+                left: -40px;
+            }
+            .stableboard{
+                width: 500px;
+            }
+        }
+    }
+    
+    .ponystable{
+        background-color: colors.$accent;
+        width:100%;
+        min-height: 600px;
+        margin-top: -140px;
+        border-radius: 20px 20px 0 0;
+        padding: 20px;
+        padding-top: 165px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+     
+    
+    
+        
+    }
+    
+    
+    /*PONY CARD*/
+    .card{
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        margin-bottom: 20px;
+        background-color: colors.$gold;
+        border-radius: 10px;
+        border: 2px solid colors.$brown;
+        .cardborder{
+            border: 2px solid colors.$lightgold;
+            border-radius: 10px;
+      
+        }
+        &__status{
+            background-image: url(../images/shine.svg);
+            background-repeat: no-repeat;
+            background-position: right;
+            height: 30px;
+            .statusicon{
+                width: 25px;
+                margin-top: -35px;
+                margin-right: -4px;
+            }
+            h4{
+                text-align: center;
+                margin-top: -10px;
+            }
+        }
+        &__title{
+            height: 40px;
+            text-align: center;
+        }
+        &__pony{
+            height: 200px;
+            background-color: colors.$accent;
+            width: 230px;
+            margin: 0 auto;
+            border-radius: 8px;
+            img{
+                width: 230px;
+    
+            }
+        }
+        &__substatus{
+    
+            display: flex;
+            justify-content: flex-end;
+            align-items: end;
+            height: 25px;
+            .statusicon{
+                width: 30px;
+                margin-bottom: -15px;
+            }
+        }
+    }//END OF CARD
+
+}//END OF MEDIA
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 1200px) {
+
+    .stable{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+        max-width: 1200px;
+
+    }
+    .topstable{
+        position: relative;
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        
+        &__stablehouse{
+            position: absolute;
+            top: -140px;
+            left: -50px;
+            .house{
+                position: absolute;
+                top: 80px; 
+                left:120px;
+                width: 280px;
+            }
+            .island{
+                width: 500px;
+            }
+        }
+        &__next{
+            width: 60px;
+        }
+        &__next:hover{
+            transform: scale(1.2);
+            translate: 0 -10px;
+        }
+        &__stableboard{
+            width: 50%;
+            align-self: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            margin-top: 0;
+            margin-bottom: 90px;
+
+            .boardinfo{
+                position: absolute;
+                top: 40px;
+                left: 80px;
+            }
+            .stableboard{
+                width: 400px;
+            }
+        }
+    }
+    
+    .ponystable{
+        background-color: colors.$accent;
+        width: 80%;
+        min-height: 600px;
+        margin-top: -30px;
+        border-radius: 20px 20px 0 0;
+        padding: 20px;
+        display: flex;
+        align-items: flex-start;
+
+        
+    }
+    
+    
+    /*PONY CARD*/
+    .card{
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        margin: 5px;
+        background-color: colors.$gold;
+        border-radius: 10px;
+        border: 2px solid colors.$brown;
+        .cardborder{
+            border: 2px solid colors.$lightgold;
+            border-radius: 10px;
+      
+        }
+        &__status{
+            background-image: url(../images/shine.svg);
+            background-repeat: no-repeat;
+            background-position: right;
+            height: 30px;
+            .statusicon{
+                width: 25px;
+                margin-top: -35px;
+                margin-right: -4px;
+            }
+            h4{
+                text-align: center;
+                margin-top: -10px;
+            }
+        }
+        &__title{
+            height: 40px;
+            text-align: center;
+        }
+        &__pony{
+            height: 200px;
+            background-color: colors.$accent;
+            width: 230px;
+            margin: 0 auto;
+            border-radius: 8px;
+            img{
+                width: 230px;
+    
+            }
+        }
+        &__substatus{
+    
+            display: flex;
+            justify-content: flex-end;
+            align-items: end;
+            height: 25px;
+            .statusicon{
+                width: 30px;
+                margin-bottom: -15px;
+            }
+        }
+    }//END OF CARD
+
+
+}//END OF MEDIA
+

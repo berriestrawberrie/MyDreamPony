@@ -1,0 +1,121 @@
+footer {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+footer .goldbanner {
+  width: 100%;
+  background-color: #FC9B0F;
+  border-top: 2px solid #713105;
+  border-bottom: 2px solid #713105;
+  overflow: hidden;
+}
+footer .goldbanner img {
+  float: left;
+}
+footer .bannerlight {
+  background-color: #FEC70B;
+  height: 4px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .bannerlinks {
+    position: absolute;
+    top: -40px;
+  }
+  .bannerlinks ul {
+    list-style-type: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .bannerlinks ul li {
+    margin: 0 10px;
+  }
+  .bannerlinks ul li a {
+    -webkit-transition: -webkit-transform 0.3s ease-out;
+    transition: -webkit-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+    display: inline-block;
+  }
+  .bannerlinks ul li a:hover {
+    -webkit-transform: translate(0, -20px);
+            transform: translate(0, -20px);
+  }
+  .bannerlinks img {
+    width: 50px;
+  }
+  .avatar {
+    display: none;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .bannerlinks {
+    position: absolute;
+    top: -40px;
+  }
+  .bannerlinks ul {
+    list-style-type: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .bannerlinks ul li {
+    margin: 0 20px;
+  }
+  .bannerlinks ul li a {
+    -webkit-transition: -webkit-transform 0.3s ease-out;
+    transition: -webkit-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+    display: inline-block;
+  }
+  .bannerlinks ul li a:hover {
+    -webkit-transform: translate(0, -20px);
+            transform: translate(0, -20px);
+  }
+  .bannerlinks img {
+    width: 60px;
+  }
+  .avatar {
+    display: none;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .avatar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    max-width: 400px;
+    position: absolute;
+    left: 0;
+    bottom: -300px;
+  }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .avatar {
+    max-width: 400px;
+    position: absolute;
+    left: 0;
+    bottom: -300px;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */

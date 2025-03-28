@@ -1,0 +1,111 @@
+@use 'colors';
+@use 'fonts';
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    background-color: #A4D9FF;
+    background-size: 10px 10px;
+    background-image: repeating-linear-gradient(45deg, #92D2FF 0, #92D2FF 1px, #A4D9FF 0, #A4D9FF 50%);
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none; 
+}
+
+.red{
+    color: red;
+}
+.white{
+    color: white;
+}
+
+h3 {
+    color: colors.$darkbrown;
+    font-family: fonts.$script;
+    font-size: 24px;
+}
+h4,h5{
+    padding: 0;
+    margin: 0;
+}
+
+h5{
+    font-size: 16px;
+    text-align: center;
+    font-family: fonts.$text;
+    color: colors.$darkbrown;
+}
+
+.success{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin-top: 20px;
+    height: 40px;
+    background-color: #bcf3bc;
+    border-radius: 15px;
+    color: green;
+    font-weight: 600;
+    border: 1px solid green;
+}
+
+.error{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 20px 0;
+    height: 40px;
+    background-color: #ff8282;
+    border-radius: 15px;
+    color: #c20000;
+    border: 1px solid #c20000;
+    font-weight: 600;
+}
+
+.btn-gold{
+    height: 40px;
+    width: 130px;
+    background-image: url(http://127.0.0.1:8000/storage/images/button.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: transparent;
+    color: colors.$brown;
+    font-weight: 700;
+}
+.btn-gold:hover{
+    transform: translateY(-10px);
+}
+
+/*CSS ANIMATION*/
+.floating{
+    animation: float 2s ease-in-out infinite;
+}
+
+
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-10px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+
+@import 'userinfo';
+@import 'main';
+@import 'stable';
+@import 'ponyprofile';
