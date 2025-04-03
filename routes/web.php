@@ -31,6 +31,12 @@ Route::get('/re-stable', function () {
 Route::get('/re-ponyprofile', function () {
     return view('REDESIGN.ponyprofile');
 })->name('reponyprofile');
+Route::get('/re-inventory', function () {
+    return view('REDESIGN.inventory');
+})->name('reinventory');
+Route::get('/re-ponygen', function () {
+    return view('REDESIGN.ponygen');
+})->name('reponygen');
 
 
 //DYNAMIC SECTION EXAMPLE

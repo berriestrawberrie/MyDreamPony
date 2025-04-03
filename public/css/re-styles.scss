@@ -26,7 +26,9 @@ a{
 .white{
     color: white;
 }
-
+p{
+    margin: 0;
+}
 h3 {
     color: colors.$darkbrown;
     font-family: fonts.$script;
@@ -35,14 +37,20 @@ h3 {
 h4,h5{
     padding: 0;
     margin: 0;
+    font-family: fonts.$text;
+}
+label{
+    font-family: fonts.$text;
+    font-weight: 700;
+    color: colors.$darkaccent;
 }
 
 h5{
     font-size: 16px;
     text-align: center;
-    font-family: fonts.$text;
     color: colors.$darkbrown;
 }
+
 
 .success{
     display: flex;
@@ -75,7 +83,7 @@ h5{
 .btn-gold{
     height: 40px;
     width: 130px;
-    background-image: url(http://127.0.0.1:8000/storage/images/button.png);
+    background-image: url(../images/button.png);
     background-size: contain;
     background-repeat: no-repeat;
     border: none;
@@ -86,6 +94,36 @@ h5{
 .btn-gold:hover{
     transform: translateY(-10px);
 }
+.btn-usage{
+    box-shadow: 5px 5px colors.$main;
+    background-color: colors.$lightaccent;
+    border: 2px solid colors.$main;
+    margin: 10px;
+    color: colors.$dark;
+    font-size: 17px;
+    font-weight: 700;
+    padding: 10px;
+    border-radius: 10px;
+}
+.btn-usage:hover{
+    background-color: colors.$accent;
+    color: colors.$main;
+}
+//BASIC FORMS
+fieldset{
+    margin: 10px 0;
+    border-radius: 20px;
+    legend{
+        font-family: fonts.$text;
+        background-color: colors.$gold;
+        height: 25px;
+        border: 1px solid colors.$brown;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+    }
+}
+
 
 /*CSS ANIMATION*/
 .floating{
@@ -105,7 +143,12 @@ h5{
 	}
 }
 
-@import 'userinfo';
+
+
+
 @import 'main';
+@import 'userinfo';
 @import 'stable';
 @import 'ponyprofile';
+@import 'inventory';
+@import 'generator';

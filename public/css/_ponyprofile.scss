@@ -1,8 +1,600 @@
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+.ponyprofile{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 90px;
+    font-family: fonts.$text;
+   
+    #ponyhex{
+        font-size: 16px;
+        width: 100%;
+        color: colors.$brown;
+        margin: 10px 0;
+        .hextype{
+            text-align: right;
+            font-weight: 700;
+        }
+        .hexbox{
+            display: inline-block;
+            height: 12px;
+            width: 12px;
+            border-radius: 3px;
+            background-color: red;
+            margin-right: 5px;
+            border: 2px solid colors.$brown;
+        }
+
+    }
+    &__ponyimage{
+        background-color: colors.$accent;
+        border-radius: 0px;
+        border: none;
+        img{
+            width: 320px;
+        }
+
+
+    }
+    &__ponystats{
+        width: 320px;
+        background-color: colors.$paper;
+        border-radius: 0;
+        border: 1px solid colors.$brown;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+        hr{
+            width: 100%;
+            height: 3px;
+            background-color: colors.$brown;
+
+        }
+        .hpbar{
+            height: 44px;
+            width: 240px;
+            background-image: url(../images/hpbar.png);
+            background-repeat: no-repeat;
+            position: relative;
+            .hpbarlength{
+                height: 15px;
+                max-width:182px;
+                width: 30%;
+                position: absolute;
+                top: 10px;
+                left: 44px;
+                background-image: linear-gradient( #FF0000 , #a00e0e);
+                border-radius: 5px;
+                border: 1px solid colors.$brown;
+            }
+        }//end of hpbar
+        .hungerbar{
+            height: 44px;
+            width: 240px;
+            background-image: url(../images/greenapple.png);
+            background-repeat: no-repeat;
+            position: relative;
+            .hungerbarlength{
+                height: 15px;
+                max-width:185px;
+                width: 70%;
+               position: absolute;
+               top: 15px;
+               left: 38px;
+               background-image: linear-gradient( #01FF4D , #14b47f);
+                border-radius: 5px;
+                border: 1px solid colors.$brown;
+            }
+        }//end of hpbar
+
+
+
+        .expstats{
+
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .expbar{
+            width: 165px;
+            height: 44px;
+            background-image: url(../images/expbar.png);
+            .expbarlength{
+         
+                height: 15px;
+                max-width:120px;
+                width: 100%;
+                margin-left: 35px;
+                margin-top: 11px;
+                background-image: linear-gradient( #FEC70B , #ff8800);
+                border-radius: 5px;
+                border: 1px solid colors.$brown;
+            }
+        }
+    }//end of ponystats
+
+
+    &__nextpony{
+        position: absolute;
+        width: 320px;
+
+        bottom:560px;
+        display: flex;
+        justify-content: space-between;
+        img{ 
+            width:60px;}
+        .nextleft{
+            transform: scaleX(-1);
+        }
+        
+    }
+
+
+    &__ponybanner{
+        position: absolute;
+        top: -75px;
+        width: 320px;
+        height: 160px;
+        padding-top: 30px;
+        padding-left: 70px;
+        background-image: url(../images/banner.png);
+        background-position-y: 5px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        h3{
+            transform: rotate(-4deg);
+            width: 300px;
+            overflow: hidden;
+            margin-left: -50px;
+            margin-top: 5px;
+        }
+
+
+    }
+
+}//END OF PONYPROFILE
+
+.ponystatsdetail{ 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    &__links{
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+
+    }
+    &__container{
+        padding: 20px;
+        padding-top: 40px;
+        background-color: colors.$accent;
+        height: 400px;
+        margin-top: -30px;
+        z-index: -1;
+        border: none;
+        border-radius: 0;
+        .ponycontainertop{
+            width: 320px;
+            background-color: colors.$gold;
+            height: 40px;
+            margin-top: -45px;
+            margin-left: -20px;
+            border: 1px solid colors.$brown;
+            border-radius: none;
+            box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+            overflow-y: hidden;
+            img{
+                float: right;
+                
+            }
+        }
+
+
+    }
+
+}//END OF PONYDETAILS
+.maxed{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    img{
+        width:45px;
+    }
+}
+
+.statpoints{
+    text-align: center;
+    width: 100%;
+    color: colors.$brown;
+}
+
+.stat-btn{
+    margin: 10px auto;
+
+}
+
+.equiped{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: -20px;
+    border-radius:10px;
+    background-color: colors.$accent;
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    img{
+        width: 50px;
+    }
+    &__item{
+        position: relative;
+        border: 1px solid colors.$brown;
+        background-color: colors.$paper;
+        border-radius: 10px;
+        margin-right: 5px;
+        .actual{
+            width: 50px;
+            height: 50px;
+        }
+        .cover{
+            position: absolute;
+            top: 0;
+            height: 50px;
+            width: 50px;
+            border-radius: 10px;
+            z-index: 5;
+        }
+        .desc{
+            position: absolute;
+            top: -150px;
+            width: 180px;
+            left: 60px;
+            border-radius: 10px;
+            background-color: colors.$accent;
+            padding: 8px;
+            display: none;
+            z-index: 10;
+        }
+    }
+
+}
+
+.tags{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+    span{
+        background-color: colors.$main;
+        padding: 2px 5px;
+        border-radius: 8px;
+    }
+}
+
+/*HOVEREFFECT*/
+.cover:hover + .desc{
+    display: block;
+}
+ 
+
+}
+
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    
+.ponyprofile{
+    position: relative;
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 120px;
+    font-family: fonts.$text;
+   
+    #ponyhex{
+        font-size: 16px;
+        width: 100%;
+        color: colors.$brown;
+        margin: 10px 0;
+        .hextype{
+            text-align: right;
+            font-weight: 700;
+        }
+        .hexbox{
+            display: inline-block;
+            height: 12px;
+            width: 12px;
+            border-radius: 3px;
+            background-color: red;
+            margin-right: 5px;
+            border: 2px solid colors.$brown;
+        }
+
+    }
+    &__ponyimage{
+        background-color: colors.$accent;
+        border-radius: 20px;
+        border: 2px solid colors.$brown;
+
+
+    }
+    &__ponystats{
+        width: 600px;
+        background-color: colors.$paper;
+        border-radius: 20px;
+        border: 2px solid colors.$brown;
+        box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        hr{
+            width: 100%;
+            height: 3px;
+            background-color: colors.$brown;
+
+        }
+        .hpbar{
+            height: 44px;
+            width: 240px;
+            background-image: url(../images/hpbar.png);
+            background-repeat: no-repeat;
+            position: relative;
+            .hpbarlength{
+                height: 15px;
+                max-width:182px;
+                width: 30%;
+                position: absolute;
+                top: 10px;
+                left: 44px;
+                background-image: linear-gradient( #FF0000 , #a00e0e);
+                border-radius: 5px;
+                border: 1px solid colors.$brown;
+            }
+        }//end of hpbar
+        .hungerbar{
+            height: 44px;
+            width: 240px;
+            background-image: url(../images/greenapple.png);
+            background-repeat: no-repeat;
+            position: relative;
+            .hungerbarlength{
+                height: 15px;
+                max-width:185px;
+                width: 70%;
+               position: absolute;
+               top: 15px;
+               left: 38px;
+               background-image: linear-gradient( #01FF4D , #14b47f);
+                border-radius: 5px;
+                border: 1px solid colors.$brown;
+            }
+        }//end of hpbar
+
+
+
+        .expstats{
+
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .expbar{
+            width: 165px;
+            height: 44px;
+            background-image: url(../images/expbar.png);
+            .expbarlength{
+         
+                height: 15px;
+                max-width:120px;
+                width: 100%;
+                margin-left: 35px;
+                margin-top: 11px;
+                background-image: linear-gradient( #FEC70B , #ff8800);
+                border-radius: 5px;
+                border: 1px solid colors.$brown;
+            }
+        }
+    }//end of ponystats
+
+
+    &__nextpony{
+        position: absolute;
+        width: 680px;
+        left: -50px;
+        bottom:560px;
+        display: flex;
+        justify-content: space-between;
+        img{ 
+            width:60px;}
+        .nextleft{
+            transform: scaleX(-1);
+        }
+        
+    }
+
+
+    &__ponybanner{
+        position: absolute;
+        top: -100px;
+        left: -20px;
+        width: 420px;
+        height: 160px;
+        padding-top: 30px;
+        padding-left: 70px;
+        background-image: url(../images/banner.png);
+        background-position-y: 5px;
+        background-repeat: no-repeat;
+        h3{
+            transform: rotate(-4deg);
+            width: 300px;
+            overflow: hidden;
+        }
+
+
+    }
+
+}//END OF PONYPROFILE
+
+.ponystatsdetail{ 
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+    &__links{
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+
+    }
+    &__container{
+        padding: 20px;
+        padding-top: 40px;
+        width: 100%;
+        background-color: colors.$accent;
+        height: 400px;
+        margin-top: -30px;
+        z-index: -1;
+        border: 1px solid colors.$brown;
+        border-radius: 20px 20px 0 0;
+        box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+        .ponycontainertop{
+            width: 600px;
+            background-color: colors.$gold;
+            height: 40px;
+            margin-top: -45px;
+            margin-left: -20px;
+            border: 1px solid colors.$brown;
+            box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+            border-radius: 20px 20px 0 0 ;
+            overflow-y: hidden;
+            img{
+                float: right;
+                
+            }
+        }
+
+
+    }
+
+}//END OF PONYDETAILS
+.maxed{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    img{
+        width:45px;
+    }
+}
+
+.statpoints{
+    text-align: center;
+    width: 100%;
+    color: colors.$brown;
+}
+
+.stat-btn{
+    margin: 10px auto;
+
+}
+
+.equiped{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: -20px;
+    border-radius:10px;
+    background-color: colors.$accent;
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    img{
+        width: 70px;
+    }
+    &__item{
+        position: relative;
+        border: 1px solid colors.$brown;
+        background-color: colors.$paper;
+        border-radius: 10px;
+        margin-right: 5px;
+        .actual{
+            width: 70px;
+            height: 70px;
+        }
+        .cover{
+            position: absolute;
+            top: 0;
+            height: 70px;
+            width: 70px;
+            border-radius: 10px;
+            z-index: 5;
+        }
+        .desc{
+            position: absolute;
+            top: -150px;
+            width: 180px;
+            left: 60px;
+            border-radius: 10px;
+            background-color: colors.$accent;
+            padding: 8px;
+            display: none;
+            z-index: 10;
+        }
+    }
+
+}
+
+.tags{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+    span{
+        background-color: colors.$main;
+        padding: 2px 5px;
+        border-radius: 8px;
+    }
+}
+
+/*HOVEREFFECT*/
+.cover:hover + .desc{
+    display: block;
+}
+
+
+}//END OF MEDIA 
+
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+    
 .ponyprofile{
     position: relative;
     max-width: 900px;
     width: 100%;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin-top: 50px;
@@ -32,13 +624,16 @@
         background-color: colors.$accent;
         border-radius: 20px;
         border: 2px solid colors.$brown;
+        
+    
+
     }
     &__ponystats{
         width: 290px;
-        height: 485px;
         background-color: colors.$paper;
         border-radius: 20px;
         border: 2px solid colors.$brown;
+        box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
         padding: 10px;
         display: flex;
         flex-direction: column;
@@ -52,7 +647,7 @@
         .hpbar{
             height: 44px;
             width: 240px;
-            background-image: url(http://127.0.0.1:8000/storage/images/hpbar.png);
+            background-image: url(../images/hpbar.png);
             background-repeat: no-repeat;
             position: relative;
             .hpbarlength{
@@ -70,7 +665,7 @@
         .hungerbar{
             height: 44px;
             width: 240px;
-            background-image: url(http://127.0.0.1:8000/storage/images/greenapple.png);
+            background-image: url(../images/greenapple.png);
             background-repeat: no-repeat;
             position: relative;
             .hungerbarlength{
@@ -98,7 +693,7 @@
         .expbar{
             width: 165px;
             height: 44px;
-            background-image: url(http://127.0.0.1:8000/storage/images/expbar.png);
+            background-image: url(../images/expbar.png);
             .expbarlength{
          
                 height: 15px;
@@ -138,7 +733,7 @@
         height: 160px;
         padding-top: 30px;
         padding-left: 70px;
-        background-image: url(http://127.0.0.1:8000/storage/images/banner.png);
+        background-image: url(../images/banner.png);
         background-position-y: 5px;
         background-repeat: no-repeat;
         h3{
@@ -173,15 +768,16 @@
         margin-top: -30px;
         z-index: -1;
         border: 2px solid colors.$brown;
-        border-top-right-radius: 20px;
+        border-radius: 20px 20px 0 0 ;
+        box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
         .ponycontainertop{
             width: 899px;
             background-color: colors.$gold;
             height: 40px;
             margin-top: -45px;
             margin-left: -20px;
-            border: 2px solid colors.$brown;
-            border-top-right-radius: 20px;
+            box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+            border-radius: 20px 20px 0 0 ;
             overflow-y: hidden;
             img{
                 float: right;
@@ -193,7 +789,14 @@
     }
 
 }//END OF PONYDETAILS
-
+.maxed{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    img{
+        width:45px;
+    }
+}
 
 .statpoints{
     text-align: center;
@@ -205,3 +808,77 @@
     margin: 10px auto;
 
 }
+
+.equiped{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: -20px;
+    border-radius:10px;
+    background-color: colors.$accent;
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    img{
+        width: 70px;
+    }
+    &__item{
+        position: relative;
+        border: 1px solid colors.$brown;
+        background-color: colors.$paper;
+        border-radius: 10px;
+        margin-right: 5px;
+        .actual{
+            width: 70px;
+            height: 70px;
+        }
+        .cover{
+            position: absolute;
+            top: 0;
+            height: 70px;
+            width: 70px;
+            border-radius: 10px;
+            z-index: 5;
+        }
+        .desc{
+            position: absolute;
+            top: -150px;
+            width: 180px;
+            left: 60px;
+            border-radius: 10px;
+            background-color: colors.$accent;
+            padding: 8px;
+            display: none;
+            z-index: 10;
+        }
+    }
+
+}
+
+.tags{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+    span{
+        background-color: colors.$main;
+        padding: 2px 5px;
+        border-radius: 8px;
+    }
+}
+
+/*HOVEREFFECT*/
+.cover:hover + .desc{
+    display: block;
+}
+
+
+}
+
+
+
+
+

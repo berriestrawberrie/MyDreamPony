@@ -1,0 +1,573 @@
+@use 'colors';
+@use 'fonts';
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+
+.generator{
+    
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 320px;
+    margin-top: 30px;
+}
+
+
+//FORM STYLING
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#submit{
+    margin-top: 20px;
+}
+
+.forminputs{
+    width: 100%;
+    min-width: 320px;
+ 
+}
+.colorwrapper{
+    display:flex;
+    justify-content: space-between;
+}
+
+.gencontainertop{
+    width: 100%;
+    height: 42px;
+    position: relative;
+    background-color: colors.$gold;
+    border: 1px solid colors.$brown;
+    border-radius: 10px 10px 0 0;
+    box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+    img{
+        position: absolute;
+        top: 0;
+        right: 0;
+
+    }
+    h3{
+        position: absolute;
+        top: 0;
+        padding: 0;
+        margin:0;
+        color: colors.$brown;
+        padding-left: 5px;
+        z-index: 2;
+ 
+    }
+}
+.genfemale , .genmale{
+    background-color: colors.$accent;
+    width: 50%;
+    border: 1px solid colors.$brown;
+    border-radius: 10px;
+    box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+}
+.sex {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+    border: none;
+}
+.hexcolor, .traits{
+    
+    border: none;
+    border-top: 3px solid colors.$gold;
+    border-radius: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;    
+    p{
+        text-align: center;
+        color: colors.$darkaccent;
+        font-size: 14px;
+    }
+    img{
+        width: 40px;
+    }
+}
+
+//PONY GEN SEX SELECTION
+.selection-icon{
+    margin-top: -10px;
+    margin-right: 20px;
+    margin-bottom: 40px;
+    width: 50px;
+    height: 50px;
+    img{
+        width: 60px;
+    }
+}
+/* CHECKED STYLES */
+.selection-icon input[type="radio"] + label {
+    background: colors.$darkaccent;
+    border-radius: 10px;
+    padding-top: 50px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border:1px solid  colors.$brown;
+    box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+    filter: opacity(30%);
+
+  }
+  .selection-icon input[type="radio"]:checked + label {
+    filter: opacity(100%);
+    background-color: colors.$darkaccent
+  }
+
+.selection-icon input[type="radio"] {
+    opacity: 0.011;
+  }
+//END PONY GEN SEX SELECTION
+
+//HEX COLOR SELECTION
+.hexselect{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+    img{
+        width: 50px;
+        margin-bottom: -5px;
+        border-radius: 5px;
+    }
+}
+.hexselect input[type="radio"] {
+    opacity: 0.011;
+  }
+
+.hexselect input[type="radio"] + label{
+  filter: opacity(30%);
+  margin-left: -10px;
+  margin-bottom: 5px;
+  border-radius: 8px;
+  border: 2px solid colors.$brown;
+
+}
+.hexselect input[type="radio"]:checked + label{
+    filter: opacity(100%);
+    border-radius: 5px;
+    box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+ }
+ 
+//ICON SELECTION 
+.traitselect{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  img{
+    width: 100px;
+  }
+}
+.traitselect input[type="radio"] {
+  opacity: 0.011;
+}
+
+.traitselect input[type="radio"] + label{
+filter: opacity(30%);
+background-color: colors.$main;
+border-radius: 10px;
+margin-bottom:8px;
+}
+.traitselect label:first-of-type{
+    margin-left:-20px;
+}
+.traitselect label:last-of-type{
+    margin-left:-20px;
+}
+
+.traitselect input[type="radio"]:checked + label{
+  filter: opacity(100%);
+  background-color: colors.$main;
+  box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+  
+}
+
+
+
+
+}//END OF MEDIA
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+    
+
+.generator{
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 600px;
+    margin-top: 30px;
+
+    .outputs{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-end;
+    }
+    
+}
+
+
+
+//FORM STYLING
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#submit{
+    margin-top: 20px;
+}
+
+.forminputs{
+    width: 100%;
+    min-width: 600px;
+ 
+}
+.colorwrapper{
+    display:flex;
+    justify-content: space-between;
+}
+
+.gencontainertop{
+    position: relative;
+    background-color: colors.$gold;
+    border: 1px solid colors.$brown;
+    border-radius: 10px 10px 0 0;
+    box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+    img{
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    h3{
+        padding: 0;
+        margin:0;
+        color: colors.$brown;
+        padding-left: 5px;
+    }
+}
+.genfemale , .genmale{
+    background-color: colors.$accent;
+    width: 300px;
+    border: 1px solid colors.$brown;
+    border-radius: 10px;
+    box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+}
+.sex {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+    border: none;
+}
+.hexcolor, .traits{
+    
+    border: none;
+    border-top: 3px solid colors.$gold;
+    border-radius: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;    
+    p{
+        text-align: center;
+        color: colors.$darkaccent;
+    }
+    img{
+        width: 40px;
+    }
+}
+
+//PONY GEN SEX SELECTION
+.selection-icon{
+    margin-top: -10px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 90px;
+    height: 90px;
+    img{
+        width: 80px;
+    }
+}
+/* CHECKED STYLES */
+.selection-icon input[type="radio"] + label {
+    background: colors.$darkaccent;
+    border-radius: 10px;
+    padding-top: 70px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border:1px solid  colors.$brown;
+    box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+    filter: opacity(30%);
+
+  }
+  .selection-icon input[type="radio"]:checked + label {
+    filter: opacity(100%);
+    background-color: colors.$darkaccent
+  }
+
+.selection-icon input[type="radio"] {
+    opacity: 0.011;
+  }
+//END PONY GEN SEX SELECTION
+
+//HEX COLOR SELECTION
+.hexselect{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+    img{
+        width: 50px;
+        margin-bottom: -5px;
+        border-radius: 5px;
+    }
+}
+.hexselect input[type="radio"] {
+    opacity: 0.011;
+  }
+
+.hexselect input[type="radio"] + label{
+  filter: opacity(30%);
+  margin-left: -10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+
+}
+.hexselect input[type="radio"]:checked + label{
+    filter: opacity(100%);
+    border-radius: 5px;
+    box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+ }
+ 
+//ICON SELECTION 
+.traitselect{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  img{
+    width: 130px;
+  }
+}
+.traitselect input[type="radio"] {
+  opacity: 0.011;
+}
+
+.traitselect input[type="radio"] + label{
+filter: opacity(30%);
+background-color: colors.$main;
+margin-left: -20px;
+border-radius: 10px;
+margin-bottom:5px;
+}
+.traitselect input[type="radio"]:checked + label{
+  filter: opacity(100%);
+  background-color: colors.$main;
+  box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+  
+}
+
+
+
+
+}//END OF MEDIA
+
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+    
+
+.generator{
+    width: 80%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin-top: 30px;
+
+    .outputs{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-end;
+    }
+    
+}
+
+
+
+//FORM STYLING
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#submit{
+    margin-top: 20px;
+}
+
+.forminputs{
+    width: 80%;
+    max-width: 1200px;
+ 
+}
+.colorwrapper{
+    display:flex;
+    justify-content: space-between;
+}
+
+.gencontainertop{
+    width: 100%;
+    background-color: colors.$gold;
+    border: 1px solid colors.$brown;
+    border-radius: 10px 10px 0 0;
+    box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+}
+.genfemale , .genmale{
+    background-color: colors.$accent;
+    width: 50%;
+    border: 1px solid colors.$brown;
+    border-radius: 10px;
+    box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+}
+.sex {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+    border: none;
+}
+.hexcolor, .traits{
+    
+    border: none;
+    border-top: 3px solid colors.$gold;
+    border-radius: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;    
+    p{
+        text-align: center;
+        color: colors.$darkaccent;
+    }
+    img{
+        width: 50px;
+    }
+}
+//PONY GEN SEX SELECTION
+.selection-icon{
+    margin-top: -10px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 90px;
+    height: 90px;
+    img{
+        width: 80px;
+    }
+}
+/* CHECKED STYLES */
+.selection-icon input[type="radio"] + label {
+    background: colors.$darkaccent;
+    border-radius: 10px;
+    padding-top: 70px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border:1px solid  colors.$brown;
+    box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+    filter: opacity(30%);
+
+  }
+  .selection-icon input[type="radio"]:checked + label {
+    filter: opacity(100%);
+    background-color: colors.$darkaccent
+  }
+
+.selection-icon input[type="radio"] {
+    opacity: 0.011;
+  }
+//END PONY GEN SEX SELECTION
+
+//HEX COLOR SELECTION
+.hexselect{
+  display: flex;
+  justify-content: center;
+    img{
+        width: 50px;
+        margin-bottom: -5px;
+        border-radius: 5px;
+    }
+}
+.hexselect input[type="radio"] {
+    opacity: 0.011;
+  }
+
+.hexselect input[type="radio"] + label{
+  filter: opacity(30%);
+  margin-left: -10px;
+  border-radius: 5px;
+
+}
+.hexselect input[type="radio"]:checked + label{
+    filter: opacity(100%);
+    border-radius: 5px;
+    box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+ }
+ 
+//ICON SELECTION 
+.traitselect{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  img{
+    width: 130px;
+  }
+}
+.traitselect input[type="radio"] {
+  opacity: 0.011;
+}
+
+.traitselect input[type="radio"] + label{
+filter: opacity(30%);
+background-color: colors.$main;
+margin-left: -20px;
+border-radius: 10px;
+margin-bottom:5px;
+}
+.traitselect input[type="radio"]:checked + label{
+  filter: opacity(100%);
+  background-color: colors.$main;
+  box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+  
+}
+
+
+
+
+}//END OF MEDIA
+
+
+
+
+

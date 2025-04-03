@@ -1,0 +1,519 @@
+@use 'colors';
+@use 'fonts';
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+          
+.inventory{
+    width: 100%;
+    max-width: 320px;
+    margin-top: 100px;
+    background-color: colors.$accent;
+    border-radius: 20px 20px 0 0;
+    box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+    
+    &__links{
+        background-color: colors.$gold;
+        height: 40px;
+        width: 320px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 20px 20px 0 0;
+        border: 1px solid colors.$brown;
+        box-shadow: colors.$gold 0px 0px 0px 3px;
+
+        h5{
+            margin-bottom: 0;
+            background-color: colors.$accent;
+            border-radius: 8px 8px 0 0;
+            padding: 0 5px;
+            display: none;
+  
+        }
+        .inventorylink{
+            margin-top: -25px;
+            width: 50px;
+        }
+        .inventorypoint{
+
+            z-index: 1;
+        }
+        .inventorypoint:hover{
+            translate: 0 -20px;
+        }
+        .inventoryshine{
+           position: absolute;
+           right: 10px;
+           height: 37px;
+           z-index: 0;
+        }
+    }
+
+}
+
+//ITEMS DISPLAYS
+.inventory__main{
+    padding: 5px;
+    width: 100%;
+}
+
+.sortdetail{
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    
+    &__sort{
+        align-self: center;
+        width: 250px;
+      
+
+        form{
+         
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            fieldset{
+                border: none;
+            }
+   
+        }
+    }
+    &__detail{
+        width: 300px;
+        border: 2px solid colors.$main;
+        border-radius: 20px;
+        padding: 10px;
+        box-shadow: 5px 5px colors.$main;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+}
+
+//WITHIN THE ITEM DETAIL BOX
+.groupimg{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    .detailtext{
+        width: 100%;
+    }
+    .detailimg{
+        width: 120px;
+        height: 120px;
+        img{
+            width: 120px;
+        }
+    }
+}
+.moredetail{
+    border-radius: 20px;
+    width: 100%;
+    border: 2px solid colors.$main;
+    height: 120px;
+    padding: 10px;
+    box-shadow: 3px 3px colors.$main;
+
+}
+
+.inventoryitems{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    justify-content: flex-start;
+}
+
+//ITEM IMAGES
+.item{
+    width: 85px;
+    position: relative;
+    border: 2px solid colors.$main;
+    background-color: colors.$accent;
+    border-radius: 10px;
+    margin-right: 10px;
+    box-shadow: 3px 3px colors.$main;
+    .actual{
+        width: 85px;
+        height: 85px;
+        img{
+            width: 80px;
+        }
+    }
+    .cover{
+        position: absolute;
+        top: 0;
+        height: 105px;
+        width: 105px;
+        border-radius: 10px;
+        z-index: 5;
+    }
+    .desc{
+        position: absolute;
+        top: -120px;
+        width: 180px;
+        left: 60px;
+        border-radius: 10px;
+        background-color: colors.$accent;
+        padding: 8px;
+        display: none;
+        z-index: 10;
+    }
+}
+.item:hover{
+    background-color: colors.$lightaccent;
+}
+
+
+
+}//END OF MEDIA
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+       
+.inventory{
+    width: 80%;
+    max-width: 600px;
+    margin-top: 100px;
+    background-color: colors.$accent;
+    height: 100%;
+    border-radius: 20px 20px 0 0;
+    border-left: 1px solid colors.$brown;
+    border-right: 1px solid colors.$brown;
+    box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+    
+    &__links{
+        background-color: colors.$gold;
+        height: 40px;
+        width: 100%;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 20px 20px 0 0;
+        border: 1px solid colors.$brown;
+        box-shadow: colors.$gold 0px 0px 0px 3px;
+
+        h5{
+            margin-bottom: 0;
+            background-color: colors.$accent;
+            border-radius: 8px 8px 0 0;
+            padding: 0 5px;
+            display: block;
+  
+        }
+        .inventorylink{
+            margin-top: -10px;
+            width: 80px;
+        }
+        .inventorypoint{
+
+            z-index: 1;
+        }
+        .inventorypoint:hover{
+            translate: 0 -20px;
+        }
+        .inventoryshine{
+           position: absolute;
+           right: 10px;
+           z-index: 0;
+           height: 37px;
+        }
+    }
+
+}
+
+//ITEMS DISPLAYS
+.inventory__main{
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.sortdetail{
+    display: flex; 
+    justify-content: space-between;
+    
+    &__sort{
+        align-self: center;
+        width: 250px;
+      
+
+        form{
+         
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            fieldset{
+                border: none;
+            }
+   
+        }
+    }
+    &__detail{
+        width: 300px;
+        border: 2px solid colors.$main;
+        border-radius: 20px;
+        padding: 10px;
+        box-shadow: 5px 5px colors.$main;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+}
+
+//WITHIN THE ITEM DETAIL BOX
+.groupimg{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    .detailtext{
+        width: 100%;
+    }
+    .detailimg{
+        width: 150px;
+        height: 150px;
+        img{
+            width: 150px;
+        }
+    }
+}
+.moredetail{
+    border-radius: 20px;
+    width: 100%;
+    border: 2px solid colors.$main;
+    height: 120px;
+    padding: 10px;
+    box-shadow: 3px 3px colors.$main;
+
+}
+
+.inventoryitems{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    justify-content: flex-start;
+}
+
+//ITEM IMAGES
+.item{
+    width: 120px;
+    position: relative;
+    border: 2px solid colors.$main;
+    background-color: colors.$accent;
+    border-radius: 10px;
+    margin-right: 10px;
+    box-shadow: 3px 3px colors.$main;
+    .actual{
+        width: 115px;
+        height: 115px;
+        img{
+            width: 115px;
+        }
+    }
+    .cover{
+        position: absolute;
+        top: 0;
+        height: 115px;
+        width: 115px;
+        border-radius: 10px;
+        z-index: 5;
+    }
+    .desc{
+        position: absolute;
+        top: -120px;
+        width: 180px;
+        left: 60px;
+        border-radius: 10px;
+        background-color: colors.$accent;
+        padding: 8px;
+        display: none;
+        z-index: 10;
+    }
+}
+.item:hover{
+    background-color: colors.$lightaccent;
+}
+
+
+} //END OF MEDIA
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+       
+.inventory{
+    width: 80%;
+    max-width: 1200px;
+    margin-top: 100px;
+    background-color: colors.$accent;
+    height: 100vh;
+    border-radius: 20px 20px 0 0;
+    border-left: 1px solid colors.$brown;
+    border-right: 1px solid colors.$brown;
+    box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+  
+    &__links{
+        background-color: colors.$gold;
+        height: 40px;
+        width: 100%;
+        position: relative;
+        display: flex;
+        justify-content: space-evenly;
+        border: 1px solid colors.$brown;
+        align-items: center;
+        border-radius: 20px 20px 0 0;
+        box-shadow: colors.$gold 0px 0px 0px 3px;
+
+        h5{
+            margin-bottom: 12px;
+            background-color: colors.$accent;
+            border-radius: 8px 8px 0 0;
+            padding: 0 5px;
+            display: block;
+  
+        }
+        .inventorylink{
+            width: 70px;
+        }
+        .inventorypoint{
+            margin-top: 15px;
+            z-index: 1;
+        }
+        .inventorypoint:hover{
+            translate: 0 -20px;
+        }
+        .inventoryshine{
+           position: absolute;
+           right: 10px;
+           z-index: 0;
+           height: 37px;
+        }
+    }
+
+}
+
+//ITEMS DISPLAYS
+.inventory__main{
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.sortdetail{
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+    &__sort{
+        align-self: center;
+        width: 500px;
+        
+
+        form{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            fieldset{
+                border: none;
+            }
+   
+        }
+    }
+    &__detail{
+        border: 2px solid colors.$main;
+        border-radius: 20px;
+        padding: 10px;
+        box-shadow: 5px 5px colors.$main;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 450px;
+
+    }
+}
+
+//WITHIN THE ITEM DETAIL BOX
+.groupimg{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .detailtext{
+ 
+        width: 300px;
+    }
+    .detailimg{
+        width: 150px;
+        height: 150px;
+        img{
+            width: 150px;
+        }
+    }
+}
+.moredetail{
+    border-radius: 20px;
+    border: 2px solid colors.$main;
+    height: 120px;
+    padding: 10px;
+    box-shadow: 3px 3px colors.$main;
+    width: 100%;
+}
+
+.inventoryitems{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    justify-content: flex-start;
+}
+
+//ITEM IMAGES
+.item{
+    width: 120px;
+    position: relative;
+    border: 2px solid colors.$main;
+    background-color: colors.$accent;
+    border-radius: 10px;
+    margin-right: 10px;
+    box-shadow: 3px 3px colors.$main;
+    .actual{
+        width: 115px;
+        height: 115px;
+        img{
+            width: 115px;
+        }
+    }
+    .cover{
+        position: absolute;
+        top: 0;
+        height: 115px;
+        width: 115px;
+        border-radius: 10px;
+        z-index: 5;
+    }
+    .desc{
+        position: absolute;
+        top: -120px;
+        width: 180px;
+        left: 60px;
+        border-radius: 10px;
+        background-color: colors.$accent;
+        padding: 8px;
+        display: none;
+        z-index: 10;
+    }
+}
+.item:hover{
+    background-color: colors.$lightaccent;
+}
+
+
+}
+

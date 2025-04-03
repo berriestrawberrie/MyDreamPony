@@ -11,6 +11,39 @@
 
     <div class="ponyprofile__ponyimage">
         <img src="{{asset('storage/images/kitt-male.png')}}">
+        <div class="equiped">
+            <div class="equiped__item">
+                <div class="actual"><img src="{{asset('storage/images/bowicon.png')}}"></div>
+                <div class="cover"></div>
+                <div class="desc">
+                    <p><b>Item Name</b></p>
+                    <p>Desc: I am an item description hear me rawr
+                        something else??</p>
+                    <p>Slots: Tail</p>
+                    <div class="tags">
+                        <span>tag 1</span><span>tag 2</span>
+                        <span>tag 3</span>
+                    </div>
+                </div>
+            </div>
+            <div class="equiped__item">
+                <div class="actual"><img src="{{asset('storage/images/bowicon.png')}}"></div>
+                <div class="cover"></div>
+                <div class="desc">
+                    <p><b>Item Name</b></p>
+                    <p>Desc: I am an item description hear me rawr
+                        something else??</p>
+                    <p>Slots: Tail</p>
+                    <div class="tags">
+                        <span>tag 1</span><span>tag 2</span>
+                        <span>tag 3</span>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+        </div>
     </div>
 
     <div class="ponyprofile__nextpony">
@@ -62,6 +95,16 @@
            </div>
         </div>
         <hr>
+        <div class="maxed">
+    
+            <img src="{{asset('storage/images/red-heart.png')}}">
+            <img src="{{asset('storage/images/orange-heart.png')}}">
+            <img src="{{asset('storage/images/green-heart.png')}}">
+            <img src="{{asset('storage/images/cyan-heart.png')}}">
+            <img src="{{asset('storage/images/purple-heart.png')}}">
+
+        </div>
+        <hr>
         <table class="statpoints">
             <tr>
                 <th>Intelligence</th>
@@ -79,7 +122,7 @@
 </div>
 <div class="ponystatsdetail">
    <div class="ponystatsdetail__links">
-    <button class="btn-gold">Profile</button>
+    <button class="btn-gold btn-sm">Profile</button>
     <button class="btn-gold">Items</button>
     <button class="btn-gold">Contests</button>
     <button class="btn-gold">Lineage</button>
@@ -89,6 +132,5 @@
     Pony Details here!
    </div>
 </div>
-     
 
 @endsection
