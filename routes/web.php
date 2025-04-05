@@ -10,33 +10,45 @@ use App\Http\Controllers\PonyController;
 use Illuminate\Support\Facades\Auth;
 
 //HOMEPAGE
-/*Route::get('/', function () {
+Route::get('/', function () {
     if (Auth::check()) {
         $user = Auth::User();
-        return view('templates.logged', compact('user'));
+        return view('REDESIGN.redesign', compact('user'));
     }
-    return view('templates.welcome');
+    return view('REDESIGN.home');
 })->name('home');
-*/
-
-Route::get('/', function () {
-    return view('REDESIGN.redesign');
-});
 
 
-//REDESIGN ROUTES
+//REDESIGN ROUTES CHECK IF USER LOGGED IN TO ACCESS
 Route::get('/re-stable', function () {
-    return view('REDESIGN.stables');
+    if (Auth::check()) {
+        $user = Auth::User();
+        return view('REDESIGN.stables', compact('user'));
+    }
+    return view('REDESIGN.home');
 })->name('restable');
+
 Route::get('/re-ponyprofile', function () {
-    return view('REDESIGN.ponyprofile');
+    if (Auth::check()) {
+        $user = Auth::User();
+        return view('REDESIGN.ponyprofile', compact('user'));
+    }
+    return view('REDESIGN.home');
 })->name('reponyprofile');
+
 Route::get('/re-inventory', function () {
-    return view('REDESIGN.inventory');
+    if (Auth::check()) {
+        $user = Auth::User();
+        return view('REDESIGN.inventory', compact('user'));
+    }
+    return view('REDESIGN.home');
 })->name('reinventory');
-Route::get('/re-ponygen', function () {
-    return view('REDESIGN.ponygen');
-})->name('reponygen');
+
+
+
+Route::get('/re-signup', function () {
+    return view('REDESIGN.register');
+})->name('resignup');
 
 
 //DYNAMIC SECTION EXAMPLE
@@ -93,8 +105,8 @@ Route::get('/dbtest/{user}/{id}/{type}', [AdminController::class, 'getGD']);
 Route::get('generator', [GenController::class, 'generator'])->name('generator');
 Route::post('gencolor', [GenController::class, 'gencolor'])->name('gencolor');
 Route::get('randColor', [GenController::class, 'randColor'])->name('randColor');
-Route::post('ponygen', [GenController::class, 'ponygen'])->name('ponygencode');
-Route::get('/ponygen', [GenController::class, 'ponygenform'])->name('ponygen');
+Route::post('reponygen', [GenController::class, 'reponygen'])->name('reponygencode');
+Route::get('/re-ponygen', [GenController::class, 'reponygenform'])->name('reponygen');
 
 //PONY CONTROLLERS
 Route::get('/pony/{id}', [PonyController::class, 'ponyProfile']);
@@ -108,6 +120,7 @@ Route::get('/equipForm/{itemid}', [PonyController::class, 'equipForm'])->name('e
 //IMAGES
 Route::get('/trait/{type}/{traitid}', [ImageController::class, 'getTrait']);
 Route::get('/item/{itemid}/{type}', [ImageController::class, 'getItem']);
+Route::get('/breedicon/{breed}', [ImageController::class, 'getBreedIcon']);
 
 
 

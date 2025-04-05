@@ -83,7 +83,7 @@ h5{
 .btn-gold{
     height: 40px;
     width: 130px;
-    background-image: url(../images/button.png);
+    background-image: url(http://127.0.0.1:8000/storage/images/button.png);
     background-size: contain;
     background-repeat: no-repeat;
     border: none;
@@ -125,6 +125,7 @@ fieldset{
 }
 
 
+
 /*CSS ANIMATION*/
 .floating{
     animation: float 2s ease-in-out infinite;
@@ -149,6 +150,7 @@ fieldset{
 @import 'main';
 @import 'userinfo';
 @import 'stable';
-@import 'ponyprofile';
 @import 'inventory';
 @import 'generator';
+@import 'register';
+@import 'ponyprofile';

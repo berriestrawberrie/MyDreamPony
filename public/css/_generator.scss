@@ -1,10 +1,29 @@
 @use 'colors';
 @use 'fonts';
 
+.selectall{
+  box-shadow:none;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  select , label{
+    margin-left: 20px;
+    color: colors.$brown;
+  }
+}
+
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
 
+  .selectall{
+    h3 , label{
+      display: none;
+    }
+  }
 
 .generator{
     
@@ -19,7 +38,9 @@
 
 //FORM STYLING
 form{
-    width: 100%;
+  width: 100%;
+    min-width: 320px;
+    max-width: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,7 +51,6 @@ form{
 }
 
 .forminputs{
-    width: 100%;
     min-width: 320px;
  
 }
@@ -40,7 +60,8 @@ form{
 }
 
 .gencontainertop{
-    width: 100%;
+    width: 50%;
+    min-width: 160px;
     height: 42px;
     position: relative;
     background-color: colors.$gold;
@@ -65,8 +86,9 @@ form{
     }
 }
 .genfemale , .genmale{
-    background-color: colors.$accent;
     width: 50%;
+    min-width: 160px;
+    background-color: colors.$accent;
     border: 1px solid colors.$brown;
     border-radius: 10px;
     box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
@@ -566,6 +588,7 @@ margin-bottom:5px;
 
 
 }//END OF MEDIA
+
 
 
 

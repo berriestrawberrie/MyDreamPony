@@ -11,34 +11,37 @@ use Mexitek\PHPColors\Color;
 
 class GenController extends Controller
 {
-    //
-    public function generator()
-    {
-        $buildponys = Buildpony::all();
-        $user = Auth::user();
-        return view('generator', compact('buildponys', 'user'));
-    }
-    public function ponygenform()
-    {
-        $traits = SpecialTrait::all();
 
-
-        return view('templates.ponygen', compact('traits'));
-    }
-
-    public function ponygen(Request $request)
+    //NEWEST FUNCTIONS THAT HAVE BEEN REWORKED
+    public function reponygenform()
     {
-        $sirecolors = ["baseCol", "eyeCol", "hairCol", "hairCol21", "accentCol", "accentCol21"];
-        $siretraits = ["hairtrait", "facetrait", "bodytrait"];
-        $damcolors = ["baseCol2", "eyeCol2", "hairCol2", "hairCol22", "accentCol2", "accentCol22"];
-        $damtraits = ["hairtrait2", "facetrait2", "bodytrait2"];
+        //VERIFY USER IS LOGGED IN FIRST
+        if (Auth::check()) {
+            $user = Auth::User();
+            $traits = SpecialTrait::all();
+            $buildponys = Buildpony::all();
+            return view('REDESIGN.ponygen', compact('user', 'traits', 'buildponys'));
+        }
+        return view('REDESIGN.home');
+    } //END OF REPONYGENFORM
+
+    public function reponygen(Request $request)
+    {
+
+        $damcolors = ["baseCol", "eyeCol", "hairCol", "hairCol21", "accentCol", "accentCol21"];
+        $sirecolors = ["baseCol2", "eyeCol2", "hairCol2", "hairCol22", "accentCol2", "accentCol22"];
         $babycolors = [];
-        $babytraits = [];
-        $babygenes = [];
+        //ALL CURRENTLY AVAILABLE TRAITS
+        $hairs = ["streak", "hfade", "hrainbow"];
+        $faces = ["blaze", "ffade", "fvulpine"];
+        $none = ["none"];
+        $bodys = ["paint"];
+        $uncolored = ["hrainbow", "fvulpine"];
+
         //RETRIEVE THE GENERATOR PONY SEX
         $sex = $request->input("sex");
 
-        //DETERMINE THE BABY BREED
+        //RETRIEVE THE GENERATOR BREEDS
         $sirebreed = $request->input("typeName1");
         $dambreed = $request->input("typeName2");
         if ($sirebreed == $dambreed) {
@@ -48,45 +51,26 @@ class GenController extends Controller
             $babybreed = $choose[rand(0, 1)];
         }
 
-        //DETERMINE THE BABY TRAINTS
-        for ($i = 0; $i < count($siretraits); $i++) {
-
-            $inputsire = $request->input($siretraits[$i]);
-            $inputdam = $request->input($damtraits[$i]);
-
-            if ($inputsire == $inputdam) {
-                $babytraits[$i] = $inputsire;
-            } else {
-                $babytraits[$i] = $inputsire . ',' . $inputdam;
-            }
-        }
-
-        //DETERMINE GENES BABY WILL CARRY & SHOW
+        //DETERMINE THE BABY TRAIT OR TRAITS
         $carry = [];
-        $shown = [];
-        foreach ($babytraits as $trait) {
-            //IF TRAIT IS DOUBLE, NOT SHARED BY MOTHER AND FATHER
-            if (str_contains($trait, ',')) {
-                $pass = explode(',', $trait);
-                array_push($carry, $pass[0], $pass[1]);
-            } else {
-                array_push($shown, $trait);
-            }
+        $damtrait = $request->input("specialtrait1");
+        $siretrait = $request->input("specialtrait2");
+        if ($damtrait == $siretrait) {
+            $babytrait = $damtrait;
+        } else {
+            $carry = [$damtrait, $siretrait];
+            $carryID = [];
+            //DETERMINE THE CARRY CODES FOR CARRIED  GENES
+            foreach ($carry as $i) {
+                $special = SpecialTrait::where('traitname', $i)->get();
+                $specialId = $special[0]["carry"];
+                array_push($carryID, $specialId);
+            } //END FOREACH
+            $babytrait = false;
         }
-
-
-        //RETRIEVE THE CARRY CODE 
-        $carryID = [];
-        foreach ($carry as $i) {
-            $special = SpecialTrait::where('traitname', $i)->get();
-            $specialId = $special[0]["carry"];
-            array_push($carryID, $specialId);
-        }
-
 
         //GENERATE THE BABY COLOR MIX RANDOM
         for ($i = 0; $i < count($sirecolors); $i++) {
-
             $hex1 = $request->input($sirecolors[$i]);
             $hex2 = $request->input($damcolors[$i]);
             list($maxr1, $maxg1, $maxb1) = sscanf($hex1, "#%02x%02x%02x");
@@ -144,74 +128,12 @@ class GenController extends Controller
                 $finalb = 255;
             }
 
-
-
-
             $babyhex = sprintf("%02x%02x%02x", $finalr, $finalg, $finalb);
 
             //$babyhex = $color1->mix($color2, rand(-100, 100));
             $babycolors[$i] = $babyhex;
         } //END OF BABY COLOR FOR LOOP
 
-
-        //THE BABY PONY TRAITS THAT WILL BE SHOWN
-        $hairs = ["streak", "hfade", "hrainbow"];
-        $faces = ["blaze", "ffade", "fvulpine"];
-        $none = ["none"];
-        $bodys = ["paint"];
-        if (count($shown) == 1) {
-
-            if (in_array($shown[0], $hairs)) {
-                $hairname = $shown[0];
-                $facename = 'none';
-                $bodyname = 'none';
-            }
-            if (in_array($shown[0], $faces)) {
-                $hairname = 'none';
-                $facename = $shown[0];
-                $bodyname = 'none';
-            }
-            if (in_array($shown[0], $none)) {
-                $hairname = 'none';
-                $facename = 'none';
-                $bodyname = 'none';
-            }
-            if (in_array($shown[0], $bodys)) {
-                $hairname = 'none';
-                $facename = 'none';
-                $bodyname =  $shown[0];
-            }
-        } //END OF COUNT 1
-        if (count($shown) == 2) {
-            if (in_array($shown[0], $hairs)) {
-                $hairname = $shown[0];
-                if (in_array($shown[1], $faces)) {
-                    $facename = $shown[1];
-                    $bodyname = 'none';
-                } else {
-                    $facename = 'none';
-                    $bodyname = $shown[1];
-                }
-            }
-            if (in_array($shown[0], $faces)) {
-                $hairname = 'none';
-                $facename = $shown[0];
-                $bodyname = $shown[1];
-            }
-        } //END OF COUNT 2
-        if (count($shown) == 3) {
-            $hairname = $shown[0];
-            $facename = $shown[1];
-            $bodyname = $shown[2];
-        } //END OF COUNT 3
-
-
-
-
-
-        //COLORS FOR THE BABY PONY IMAGE
-        $hair2 = $babycolors[3];
-        $accent2 = $babycolors[5];
 
         //DETERMINE THE TRAIT # BY SEX AND BREED
         if ($babybreed == "Unicorn" && $sex == "male") {
@@ -240,62 +162,33 @@ class GenController extends Controller
             $breedID = '7';
         }
 
+        //COLORS FOR THE BABY PONY IMAGE
+        $hair2 = $babycolors[3];
+        $accent2 = $babycolors[5];
 
-
-        //BUILD HAIR TRAIT IMAGE
-        $hairtrait = SpecialTrait::where('traitname', $hairname)->get();
-        $hairtrait = $hairtrait[0][$traitID];
+        //BUILD SPECIAL TRAIT IMAGE
+        $specialtrait = SpecialTrait::where('traitname', $babytrait)->get();
+        $specialtrait = $specialtrait[0][$traitID];
         //PUT DB IMAGE ONTO SERVER
-        file_put_contents(public_path('storage/users/' . '0' . 'hairtrait.png'), $hairtrait);
+        file_put_contents(public_path('storage/users/' . '0' . 'specialtrait.png'), $specialtrait);
         //CONVERT DB IMAGE TO GD IMAGE
-        $imht = imagecreatefrompng(public_path('storage/users/' . '0' . 'hairtrait.png'));
-        imageAlphaBlending($imht, true);
-        imageSaveAlpha($imht, true);
-        //EXTRACT THE RGB FROM THE HEX COLOR
-        list($hr, $hg, $hb) = sscanf($hair2, "%02x%02x%02x");
+        $imst = imagecreatefrompng(public_path('storage/users/' . '0' . 'specialtrait.png'));
+        imageAlphaBlending($imst, true);
+        imageSaveAlpha($imst, true);
+        //EXTRACT THE SPECIAL TRAIT COLORING FROM ACCENT IF FACE OR BODY
+        if (in_array($babytrait, $faces) || in_array($babytrait, $bodys)) {
+            list($hr, $hg, $hb) = sscanf($accent2, "%02x%02x%02x");
+        } else {
+            list($hr, $hg, $hb) = sscanf($hair2, "%02x%02x%02x");
+        }
         //RECOLOR THE PONY HAIR TRAIT IMAGE IF HAIR IS NOT RAINBOW
-        if ($hairname != "hrainbow") {
-            imagefilter($imht, IMG_FILTER_COLORIZE, $hr, $hg, $hb);
-        }
-
-        //RESAVE TO SERVER
-        imagepng($imht, public_path('storage/users/' . '0' . 'hairtrait.png'));
-
-        //BUILD FACE TRAIT IMAGE
-        $facetrait = SpecialTrait::where('traitname', $facename)->get();
-        $facetrait = $facetrait[0][$traitID];
-        //PUT DB IMAGE ONTO SERVER
-        file_put_contents(public_path('storage/users/' . '0' . 'facetrait.png'), $facetrait);
-        //CONVERT DB IMAGE TO GD IMAGE
-        $imft = imagecreatefrompng(public_path('storage/users/' . '0' . 'facetrait.png'));
-        imageAlphaBlending($imft, true);
-        imageSaveAlpha($imft, true);
-        //EXTRACT THE RGB FROM THE HEX COLOR
-        list($fr, $fg, $fb) = sscanf($accent2, "%02x%02x%02x");
-        //RECOLOR THE PONY FACE TRAIT IMAGE
-        if ($facename != "fvulpine") {
-            imagefilter($imft, IMG_FILTER_COLORIZE, $fr, $fg, $fb);
+        if (in_array($babytrait, $uncolored)) {
+            $imst =  $imst;
+        } else {
+            imagefilter($imst, IMG_FILTER_COLORIZE, $hr, $hg, $hb);
         }
         //RESAVE TO SERVER
-        imagepng($imft, public_path('storage/users/' . '0' . 'facetrait.png'));
-
-        //BUILD BODY TRAIT IMAGE
-
-        $bodytrait = SpecialTrait::where('traitname', $bodyname)->get();
-        $bodytrait = $bodytrait[0][$traitID];
-        //PUT DB IMAGE ONTO SERVER
-        file_put_contents(public_path('storage/users/' . '0' . 'bodytrait.png'), $bodytrait);
-        //CONVERT DB IMAGE TO GD IMAGE
-        $imbt = imagecreatefrompng(public_path('storage/users/' . '0' . 'bodytrait.png'));
-        imageAlphaBlending($imbt, true);
-        imageSaveAlpha($imbt, true);
-        //EXTRACT THE RGB FROM THE HEX COLOR
-        list($br, $bg, $bb) = sscanf($accent2, "%02x%02x%02x");
-        //RECOLOR THE PONY FACE TRAIT IMAGE
-        imagefilter($imbt, IMG_FILTER_COLORIZE, $br, $bg, $bb);
-        //RESAVE TO SERVER
-        imagepng($imft, public_path('storage/users/' . '0' . 'bodytrait.png'));
-
+        imagepng($imst, public_path('storage/users/' . '0' . 'specialtrait.png'));
 
         //BUILD THE PONY IMAGES
         $pony = Buildpony::where('id', $breedID)->get();
@@ -328,20 +221,20 @@ class GenController extends Controller
         for ($i = 0; $i < count($ponyimgs); $i++) {
 
             //ADD THE FACE TRAIT LAYER
-            if ($i == 3) {
+            if ($i == 3 && in_array($babytrait, $faces)) {
                 imagecopy($merge[0], $merge[$i], 0, 0, 0, 0, 599, 485);
-                imagecopy($merge[0], $imft, 0, 0, 0, 0, 599, 485);
+                imagecopy($merge[0], $imst, 0, 0, 0, 0, 599, 485);
             }
 
             //ADD THE HAIR TRAIT LAYER
-            if ($i == 2) {
+            if ($i == 2 &&  in_array($babytrait, $hairs)) {
                 imagecopy($merge[0], $merge[$i], 0, 0, 0, 0, 599, 485);
-                imagecopy($merge[0], $imht, 0, 0, 0, 0, 599, 485);
+                imagecopy($merge[0], $imst, 0, 0, 0, 0, 599, 485);
             }
 
-            if ($i == 1) {
+            if ($i == 1 && in_array($babytrait, $bodys)) {
                 imagecopy($merge[0], $merge[$i], 0, 0, 0, 0, 599, 485);
-                imagecopy($merge[0], $imbt, 0, 0, 0, 0, 599, 485);
+                imagecopy($merge[0], $imst, 0, 0, 0, 0, 599, 485);
             }
             imagecopy($merge[0], $merge[$i], 0, 0, 0, 0, 599, 485);
         }
@@ -352,36 +245,19 @@ class GenController extends Controller
         //REFORMAT TRAITS TO STRING
         //unset($babytraits[array_search('none', $babytraits)]);
 
-        array_unique($carryID);
+        //array_unique($carryID);
 
-        /*
-        Pony::create([
-            'name' => 'Unnamed',
-            'image' => file_get_contents(public_path('storage/users/' . '0' . 'merged.png')),
-            'sex' => $request->input('sex'),
-            'typeid' => $pony[0]['id'],
-            'charm' => $pony[0]['charm'],
-            'intel' => $pony[0]['intel'],
-            'str' => $pony[0]['str'],
-            'hp' => $pony[0]['hp'],
-            'eyeCol' => $babycolors[1],
-            'accentCol' => $babycolors[4],
-            'hairCol' => $babycolors[2],
-            'hairCol2' => $babycolors[3],
-            'baseCol' => $babycolors[0],
-            'accentCol2' => $babycolors[5],
-            'specialtrait' => implode(",", $shown),
-            'hunger'  => 100,
-            'health' => 100,
-            'pregnant' => 0,
-            'ownerid' => 1,
-            'genes' => implode(",", $carryID),
-            'lineage' => "",
+        return redirect('/re-ponygen')->with('success', 'Pony Generated!');
+    } //END OF REPONYGEN
 
-        ]);
-        */
 
-        return redirect('/ponygen', compact('bodyname'))->with('success', 'Pony Generated!');
+
+    //OLD FUNCTIONS
+    public function generator()
+    {
+        $buildponys = Buildpony::all();
+        $user = Auth::user();
+        return view('generator', compact('buildponys', 'user'));
     }
 
 

@@ -78,7 +78,7 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
 
         ]);
-        return redirect('/blade')->with('success', 'Registration successful! Please log in.');
+        return redirect('/')->with('success', 'Registration successful! Please log in.');
     }
 
     public function login(Request $request)
@@ -87,7 +87,7 @@ class UserController extends Controller
         if (Auth::attempt($credientials)) {
             $user = Auth::user();
 
-            return view('templates.logged', compact('user'));
+            return view('REDESIGN.stables', compact('user'));
         }
         return redirect('/')->with('error', 'Invalid credentials. Please try again.');
     }

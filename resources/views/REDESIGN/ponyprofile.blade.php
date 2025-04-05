@@ -5,7 +5,7 @@
 @section('bodysection')
 <div class="ponyprofile">
 
-    <div class="ponyprofile__ponybanner">
+    <div class="ponyprofile__ponybanner" style="background-image: url('{{asset('storage/images/banner.png')}}');">
        <h3>IamTheOneTrueKing</h3>
     </div>
 
@@ -53,11 +53,11 @@
     
     <div class="ponyprofile__ponystats">
         <h5>HP: 0 /100</h5>
-        <div class="hpbar">
+        <div class="hpbar" style="background-image: url('{{asset('storage/images/hpbar.png')}}');">
             <div class="hpbarlength"></div>
         </div>
         <h5>Hunger: 0 /100</h5>
-        <div class="hungerbar">
+        <div class="hungerbar" style="background-image: url('{{asset('storage/images/greenapple.png')}}');">
             <div class="hungerbarlength"></div>
         </div>
         <hr>
@@ -90,7 +90,7 @@
             <tr><td><h5>Level</h5></td></tr>
             <tr><td><h5>765</h5></td></tr>
            </table>
-           <div class="expbar">
+           <div class="expbar" style="background-image: url('{{asset('storage/images/expbar.png')}}');">
             <div class="expbarlength"></div>
            </div>
         </div>

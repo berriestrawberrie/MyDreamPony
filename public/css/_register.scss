@@ -1,0 +1,22 @@
+@use 'colors';
+@use 'fonts';
+
+.registration{
+    width: 80%;
+    max-width: 600px;
+    background-color: colors.$accent;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 50px;
+    form {
+        width: 100%;
+        fieldset{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            
+        }
+        
+    }
+}

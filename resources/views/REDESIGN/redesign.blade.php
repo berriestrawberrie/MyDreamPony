@@ -16,14 +16,22 @@
     
 
     <!--STYLED IN STYLES SASS-->
-    <div class="success">I am a success! <i class="fa-solid fa-face-smile"></i></div>
-    <div class="error">I am a alert! <i class="fa-solid fa-triangle-exclamation"></i></div>
+     <!--DISPLAY SUCCESS-->
+     @if(session()->has('success'))
+     <div class="success">{{session('success')}} </div>
+     @endif
+     <!--DISPLAY ERRORS-->
+     @if(session()->has('error'))
+     <div class="error">{{session('error')}}</div>
+    
+     @endif
+      
 
     <!--Input the content-->
-    @yield('bodysection');
+    @yield('bodysection')
 
 <!--INCLUDE THE FOOTER STYLED IN THE FOOTER SCSS-->
-@include('REDESIGN/footer');
+@include('REDESIGN/footer')
 
 </body>
 

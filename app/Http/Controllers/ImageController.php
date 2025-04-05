@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Buildpony;
 use App\Models\Item;
 use App\Models\Pony;
 use App\Models\SpecialTrait;
@@ -80,6 +81,17 @@ class ImageController extends Controller
         $rendered_buffer = SpecialTrait::where('traitid', $traitid)->get();
         $check = '"' . $type . '"';
         $img = $rendered_buffer[0][$check];
+
+        return response($img)
+            ->header('Content-Type', 'image/png')
+            ->header('Cache-Control', 'max-age=2592000');
+    }
+
+    public function getBreedIcon($breed)
+    {
+        //get the trait image data by ponytype and sex
+        $rendered_buffer = Buildpony::where('typeName', $breed)->get();
+        $img = $rendered_buffer[0]["icon"];
 
         return response($img)
             ->header('Content-Type', 'image/png')
