@@ -6,11 +6,11 @@
 <div class="ponyprofile">
 
     <div class="ponyprofile__ponybanner" style="background-image: url('{{asset('storage/images/banner.png')}}');">
-       <h3>IamTheOneTrueKing</h3>
+       <h3>{{$ponys[0]["name"]}}</h3>
     </div>
 
     <div class="ponyprofile__ponyimage">
-        <img src="{{asset('storage/images/kitt-male.png')}}">
+        <img src="/ponyImage/{{$ponys[0]["ponyid"]}}"/>
         <div class="equiped">
             <div class="equiped__item">
                 <div class="actual"><img src="{{asset('storage/images/bowicon.png')}}"></div>
@@ -47,40 +47,40 @@
     </div>
 
     <div class="ponyprofile__nextpony">
-        <img class="nextleft" src="{{asset('storage/images/arrow.png')}}">
-        <img class="nextright" src="{{asset('storage/images/arrow.png')}}">
+        <a href="/repreviouspony/{{$ponys[0]["stable_assign"]}}/{{$ponys[0]["ponyid"]}}"><img class="nextleft" src="{{asset('storage/images/arrow.png')}}"></a>
+        <a href="/renextpony/{{$ponys[0]["stable_assign"]}}/{{$ponys[0]["ponyid"]}}"><img class="nextright" src="{{asset('storage/images/arrow.png')}}"></a>
     </div>
     
     <div class="ponyprofile__ponystats">
-        <h5>HP: 0 /100</h5>
+        <h5>HP: {{$ponys[0]["health"]}} /100</h5>
         <div class="hpbar" style="background-image: url('{{asset('storage/images/hpbar.png')}}');">
-            <div class="hpbarlength"></div>
+            <div class="hpbarlength" style="width: {{$ponys[0]["health"]}}%;"></div>
         </div>
-        <h5>Hunger: 0 /100</h5>
+        <h5>Hunger: {{$ponys[0]["hunger"]}} /100</h5>
         <div class="hungerbar" style="background-image: url('{{asset('storage/images/greenapple.png')}}');">
-            <div class="hungerbarlength"></div>
+            <div class="hungerbarlength" style="width: {{$ponys[0]["hunger"]}}%;"></div>
         </div>
         <hr>
         <table id="ponyhex">
             <tr>
                 <td class="hextype">Coat:</td>
-                <td class="hexcode"><div class="hexbox coat"></div> #FFFFFF</td>
+                <td class="hexcode"><div class="hexbox" style="background-color: #{{$ponys[0]["baseCol"]}};"></div> #{{$ponys[0]["baseCol"]}}</td>
                 <td></td>
             </tr>
             <tr>
                 <td class="hextype">Eye:</td>
-                <td class="hexcode"><div class="hexbox eye"></div>#FFFFFF</td>
+                <td class="hexcode"><div class="hexbox" style="background-color: #{{$ponys[0]["eyeCol"]}};"></div>#{{$ponys[0]["eyeCol"]}}</td>
                 <td></td>
             </tr>
             <tr>
                 <td class="hextype">Accent:</td>
-                <td class="hexcode"><div class="hexbox accent1"></div>#FFFFFF</td>
-                <td class="hexcode"><div class="hexbox accent2"></div> #000000</td>
+                <td class="hexcode"><div class="hexbox" style="background-color: #{{$ponys[0]["accentCol"]}};"></div>#{{$ponys[0]["accentCol"]}}</td>
+                <td class="hexcode"><div class="hexbox" style="background-color: #{{$ponys[0]["accentCol2"]}};"></div> #{{$ponys[0]["accentCol2"]}}</td>
             </tr>
             <tr>
                 <td class="hextype">Hair:</td>
-                <td class="hexcode"><div class="hexbox hair1"></div> #FFFFFF</td>
-                <td class="hexcode"><div class="hexbox hair2"></div> #000000</td>
+                <td class="hexcode"><div class="hexbox" style="background-color: #{{$ponys[0]["hairCol"]}};"></div> #{{$ponys[0]["hairCol"]}}</td>
+                <td class="hexcode"><div class="hexbox" style="background-color: #{{$ponys[0]["hairCol2"]}};"></div> #{{$ponys[0]["hairCol2"]}}</td>
             </tr>
 
         </table>
@@ -88,10 +88,10 @@
         <div class="expstats">
            <table>
             <tr><td><h5>Level</h5></td></tr>
-            <tr><td><h5>765</h5></td></tr>
+            <tr><td><h5>{{$ponys[0]["level"]}} </h5></td></tr>
            </table>
            <div class="expbar" style="background-image: url('{{asset('storage/images/expbar.png')}}');">
-            <div class="expbarlength"></div>
+            <div class="expbarlength" style="width: {{$ponys[0]["exp"]}}%;"></div>
            </div>
         </div>
         <hr>

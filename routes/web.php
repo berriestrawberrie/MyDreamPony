@@ -20,22 +20,6 @@ Route::get('/', function () {
 
 
 //REDESIGN ROUTES CHECK IF USER LOGGED IN TO ACCESS
-Route::get('/re-stable', function () {
-    if (Auth::check()) {
-        $user = Auth::User();
-        return view('REDESIGN.stables', compact('user'));
-    }
-    return view('REDESIGN.home');
-})->name('restable');
-
-Route::get('/re-ponyprofile', function () {
-    if (Auth::check()) {
-        $user = Auth::User();
-        return view('REDESIGN.ponyprofile', compact('user'));
-    }
-    return view('REDESIGN.home');
-})->name('reponyprofile');
-
 Route::get('/re-inventory', function () {
     if (Auth::check()) {
         $user = Auth::User();
@@ -73,20 +57,22 @@ Route::get('/purchase/{npc}/{itemid}', [NPC::class, 'itemPurchase']);
 Route::get('/restock/{npc}', [NPC::class, 'restockShop']);
 Route::get('/unstock/{npc}', [NPC::class, 'unstockShop']);
 
-//USER WELCOME PAGE
-Route::get('/logged', function () {
-    return view('templates.logged');
-})->name('logged');
-Route::get('/test', function () {
-    return view('userplay');
-});
-Route::get('/avatardesigner', [UserController::class, 'avatardesgin'])->name('avatardesigner');
-
+//USER ROUTES
+Route::post('/basehue', [UserController::class, 'avatardesgin'])->name('basehue');
+Route::get('/re-stable', [UserController::class, 'remyStables'])->name('restable');
+Route::get('/re-stable2', [UserController::class, 'remyStables2'])->name('restable2');
+Route::get('/stable', [UserController::class, 'myStables'])->name('stable');
+Route::post('/newstable', [UserController::class, 'updateStables'])->name('newstable');
+Route::get('/wardrobe', function () {
+    if (Auth::check()) {
+        $user = Auth::User();
+        return view('REDESIGN.wardrobe', compact('user'));
+    }
+    return view('REDESIGN.home');
+})->name('wardrobe');
 
 //LOGOUT
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
-Route::post('/newstable', [UserController::class, 'updateStables'])->name('newstable');
-Route::get('/stable', [UserController::class, 'myStables'])->name('stable');
 Route::get('/map', [UserController::class, 'explore'])->name('map');
 
 
@@ -115,12 +101,17 @@ Route::get('/previouspony/{previous}', [PonyController::class, 'previousPony']);
 Route::post('/unequip/{ponyid}', [PonyController::class, 'unequipItem']);
 Route::post('/equip/{itemid}', [PonyController::class, 'equipItem']);
 Route::get('/equipForm/{itemid}', [PonyController::class, 'equipForm'])->name('equipForm');
+Route::get('/re-ponyprofile/{id}', [PonyController::class, 'reponyProfile'])->name('reponyprofile');
+Route::get('/renextpony/{stable}/{current}', [PonyController::class, 'renextPony']);
+Route::get('/repreviouspony/{stable}/{previous}', [PonyController::class, 'repreviousPony']);
+
 
 
 //IMAGES
 Route::get('/trait/{type}/{traitid}', [ImageController::class, 'getTrait']);
 Route::get('/item/{itemid}/{type}', [ImageController::class, 'getItem']);
 Route::get('/breedicon/{breed}', [ImageController::class, 'getBreedIcon']);
+Route::get('/buildavatar/{avatarid}/{imgtype}', [ImageController::class, 'buildAvatar']);
 
 
 

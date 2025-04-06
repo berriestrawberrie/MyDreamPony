@@ -11,7 +11,8 @@ class Pony extends Model
 
     protected $fillable = [
         'ponyid',
-        'stable',
+        'stable_assign',
+        'stable_ord',
         'sex',
         'name',
         'image',
@@ -42,6 +43,7 @@ class Pony extends Model
         'health',
         'exp',
         'pregnant',
+        'nxt_contest',
         'ownerid',
         'genes',
         'lineage'

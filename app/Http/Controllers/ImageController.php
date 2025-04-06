@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Buildavatar;
 use App\Models\Buildpony;
 use App\Models\Item;
 use App\Models\Pony;
@@ -92,6 +93,17 @@ class ImageController extends Controller
         //get the trait image data by ponytype and sex
         $rendered_buffer = Buildpony::where('typeName', $breed)->get();
         $img = $rendered_buffer[0]["icon"];
+
+        return response($img)
+            ->header('Content-Type', 'image/png')
+            ->header('Cache-Control', 'max-age=2592000');
+    }
+
+    public function buildAvatar($avatarid, $imgtype)
+    {
+        //GET THE RIGHT AVATAR IMAGES
+        $rendered_buffer = Buildavatar::where('avatarid', $avatarid)->get();
+        $img = $rendered_buffer[0][$imgtype];
 
         return response($img)
             ->header('Content-Type', 'image/png')

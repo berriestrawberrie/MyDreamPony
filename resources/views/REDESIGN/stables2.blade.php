@@ -1,5 +1,6 @@
 @extends('REDESIGN/redesign')
-@section('title')My Stable Name @endsection
+@section('title'){{$user->stable2}} @endsection
+@section('pagecss')<link rel="stylesheet" href="{{asset('css/stables2.css')}}">  @endsection
 
 
 @section('bodysection')
@@ -13,10 +14,10 @@
             <div class="topstable__stableboard">
                 <img class="stableboard" src="{{asset('storage/images/stableboard.png')}}">
                 <div class="boardinfo">
-                    <h2>{{$user->stable1}}</h2>
+                    <h2>{{$user->stable2}}</h2>
 
                 </div>
-                <a href="{{route('restable2')}}"><img class="topstable__next" src="{{asset('storage/images/arrow.png')}}"></a>
+                <a href="{{route('restable')}}"><img class="topstable__next" src="{{asset('storage/images/arrow.png')}}"></a>
             </div>
         </div>
 
@@ -31,7 +32,7 @@
                                 @if($pony->health < 100)<img class="statusicon" src="{{asset('storage/images/statu-heart.svg')}}">@endif
                                 <img class="statusicon" src="{{asset('storage/images/statu-light.svg')}}">
                                 @if($pony->nxt_contest)<img class="statusicon" src="{{asset('storage/images/status-shield.svg')}}">@endif
-                                <a href="/re-ponyprofile/{{$pony->ponyid}}"><h4>{{$pony->name}}</h4></a>
+                                <h4>{{$pony->name}}</h4>
                             </div>
                             <div class="card__pony">
                                 <img src="/ponyImage/{{$pony->ponyid}}" draggable="false"/>

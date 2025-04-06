@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\PurchaseItem;
+use App\Models\Buildavatar;
 use App\Models\Item;
 use App\Models\Pony;
 use Illuminate\Http\Request;
@@ -23,10 +24,39 @@ class UserController extends Controller
 
     public function myStables()
     {
-        $user = Auth::user();
-        $ponys = Pony::where('ownerid', $user["id"])->orderBy('stable')->get();
+        if (Auth::check()) {
+            $user = Auth::user();
+            $ponys = Pony::where('ownerid', $user["id"])->orderBy('stable_ord')->get();
 
-        return view('templates.stables', ['user' => $user], ['ponys' => $ponys]);
+            return view('templates.stables', ['user' => $user], ['ponys' => $ponys]);
+        }
+        return view('REDESIGN.home');
+    }
+
+    public function remyStables()
+    {
+        if (Auth::check()) {
+            $user = Auth::user();
+            $ponys = Pony::where('ownerid', $user["id"])
+                ->where('stable_assign', 1)
+                ->orderBy('stable_ord')->get();
+
+            return view('REDESIGN.stables', ['user' => $user], ['ponys' => $ponys]);
+        }
+        return view('REDESIGN.home');
+    }
+
+    public function remyStables2()
+    {
+        if (Auth::check()) {
+            $user = Auth::user();
+            $ponys = Pony::where('ownerid', $user["id"])
+                ->where('stable_assign', 2)
+                ->orderBy('stable_ord')->get();
+
+            return view('REDESIGN.stables2', ['user' => $user], ['ponys' => $ponys]);
+        }
+        return view('REDESIGN.home');
     }
 
     public function myInventory()
@@ -56,7 +86,7 @@ class UserController extends Controller
             $ponyid = $request["order"][$i][0];
             $stable = $request["order"][$i][1];
             Pony::where('ponyid', $ponyid)
-                ->update(['stable' => $stable]);
+                ->update(['stable_ord' => $stable]);
         }
         return "stable order";
     }
@@ -87,7 +117,7 @@ class UserController extends Controller
         if (Auth::attempt($credientials)) {
             $user = Auth::user();
 
-            return view('REDESIGN.stables', compact('user'));
+            return view('REDESIGN.home', compact('user'));
         }
         return redirect('/')->with('error', 'Invalid credentials. Please try again.');
     }
@@ -148,9 +178,29 @@ class UserController extends Controller
 
         return view('explore.' . $npc, compact('user', 'items', 'tags', 'npc'));
     }
-    public function avatardesgin()
+    public function avatardesgin(Request $request)
     {
-        $user = Auth::User();
-        return view('templates.dressup', compact('user'));
+        //READ IN THE BASE HUE REQUEST
+        $hex = $request->basehue;
+        $avatarid = $request->avatarid;
+        list($huer, $hueg, $hueb) = sscanf($hex, "#%02x%02x%02x");
+
+        //GET THE BASE IMAGE
+        $base = Buildavatar::where('avatarid', $avatarid)->get();
+        $base = $base[0]["base"];
+        //PUT DB IMAGE ONTO SERVER
+        file_put_contents(public_path('storage/users/' . '1' . 'avibase.png'), $base);
+        //CONVERT DB IMAGE TO GD IMAGE
+        $imgbase = imagecreatefrompng(public_path('storage/users/' . '1' . 'avibase.png'));
+        imageAlphaBlending($imgbase, true);
+        imageSaveAlpha($imgbase, true);
+
+        //RECOLOR THE BASE TO MATCH THE INPUT HUE
+        imagefilter($imgbase, IMG_FILTER_COLORIZE, $huer, $hueg, $hueb);
+
+        //RESAVE TO SERVER
+        imagepng($imgbase, public_path('storage/users/' . '1' . 'avibase.png'));
+
+        return view('REDESIGN.wardrobe');
     }
 }

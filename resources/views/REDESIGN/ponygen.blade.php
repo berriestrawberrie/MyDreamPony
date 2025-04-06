@@ -3,16 +3,19 @@
 
 
 @section('bodysection')
+
+<img id="image" src="http://localhost:8000/storage/users/0merged.png?" style="position: fixed; top: 50px; left: 10px;" width="300">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
 <div class="generator">  
-    <!--<img id="image" src="http://localhost:8000/storage/users/0merged.png?">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>-->
-    <div class="forminputs">
+      <div class="forminputs">
         <form method="POST" action="{{route('reponygencode')}}">
             @csrf
             @method('Post')
             <fieldset class="sex">
                 <div class="selection-icon">
-                    <input type="radio" name="sex" id="female" value="female" >
+                    <input type="radio" name="sex" id="female" value="female" checked>
                     <label for="female"><img src="{{asset('storage/images/femaledesign.png')}}" title="Female"></label>
                </div>
                <div class="selection-icon">

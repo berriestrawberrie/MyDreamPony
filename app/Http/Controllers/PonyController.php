@@ -12,6 +12,30 @@ use Illuminate\Support\Facades\Auth;
 
 class PonyController extends Controller
 {
+
+    public function reponyProfile($ponyID)
+    {
+        if (Auth::check()) {
+            $user = Auth::User();
+            $useritems = UserItem::where('userid', $user["id"])->get();
+            $itemslist = explode(',', $useritems[0]["itemid"]);
+            $qtylist = explode(',', $useritems[0]["qty"]);
+            $items = Item::wherein('itemid', $itemslist)
+                ->get();
+            $ponys = Pony::where('ponyid', $ponyID)->get();
+            $traits = SpecialTrait::all();
+            $mypony = $ponys;
+            $shown = explode(',', $ponys[0]['specialtrait']);
+            $carry = explode(',', $ponys[0]['genes']);
+            return view(
+                'REDESIGN.ponyprofile',
+                ['ponys' => $mypony, 'traits' => $traits, 'shown' => $shown, 'carry' => $carry, 'group' => $items, 'qtylist' => $qtylist]
+            );
+        }
+        return view('REDESIGN.home');
+    } //END OF REPONYPROFILE
+
+
     //DISPLAY THE PROFILE PAGE AND UPDATES?
     public function ponyProfile($ponyID)
     {
@@ -32,6 +56,64 @@ class PonyController extends Controller
         );
     }
 
+    public function renextPony($stable, $current)
+    {
+        $user = Auth::user();
+        //GET THE PONY LIST AND STABLE ORDER
+        $ponys = Pony::where('ownerid', $user["id"])
+            ->where('stable_assign', $stable)
+            ->orderby('stable_ord')->get();
+        $ponylist = [];
+        $stablelist = [];
+        for ($i = 0; $i < count($ponys); $i++) {
+            $stablelist[$i] = $ponys[$i]["stable_ord"];
+            $ponylist[$i] = $ponys[$i]["ponyid"];
+        }
+
+        //FIND THE INDEX OF THE CURRENT PONY
+        $find = array_search($current, $ponylist);
+        //CHECK IF YOU ARE AT THE END OF THE STABLE ORDER THEN RESET
+        if ($find == (count($ponylist) - 1)) {
+            $next = 0;
+        } else {
+            $next = $find + 1;
+        }
+
+        $nextpony = $ponylist[$next];
+
+
+        return $this->reponyProfile($nextpony);
+    }
+
+    public function repreviousPony($stable, $previous)
+    {
+
+        $user = Auth::user();
+        //GET THE PONY LIST AND STABLE ORDER
+        $ponys = Pony::where('ownerid', $user["id"])
+            ->where('stable_assign', $stable)
+            ->orderby('stable_ord')->get();
+        $ponylist = [];
+        $stablelist = [];
+        for ($i = 0; $i < count($ponys); $i++) {
+            $stablelist[$i] = $ponys[$i]["stable_ord"];
+            $ponylist[$i] = $ponys[$i]["ponyid"];
+        }
+
+        //FIND THE INDEX OF THE CURRENT PONY
+        $find = array_search($previous, $ponylist);
+        //CHECK IF YOU ARE AT THE END OF THE STABLE ORDER THEN RESET
+        if ($find == 0) {
+            $next = count($ponylist) - 1;
+        } else {
+            $next = $find - 1;
+        }
+
+        $nextpony = $ponylist[$next];
+
+
+        return $this->reponyProfile($nextpony);
+    }
     public function nextPony($current)
     {
         $user = Auth::user();

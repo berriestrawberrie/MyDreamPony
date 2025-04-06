@@ -1,3 +1,5 @@
+
+
 @use 'colors';
 @use 'fonts';
 
@@ -39,20 +41,24 @@ ul{
                 top: 30px; 
                 left:60px;
                 width: 200px;
+                transform: scaleX(-1);
             }
             .island{
                 width: 100%;
-                width: 320px;   
+                width: 320px;  
+                transform: scaleX(-1); 
 
             }
         }
         &__next{
             width: 60px;
             margin-top: 10px;
+            transform: scaleX(-1);
         }
         &__next:hover{
             transform: scale(1.2);
             translate: 0 -10px;
+            transform: scaleX(-1);
         }
         &__stableboard{
 
@@ -180,9 +186,11 @@ ul{
                 top: 65px; 
                 left: 110px;
                 width: 380px;
+                transform: scaleX(-1);
             }
             .island{
                 width: 600px;
+                transform: scaleX(-1);
                 
 
             }
@@ -190,16 +198,18 @@ ul{
         &__next{
             width: 60px;
             margin-top: 10px;
+            transform: scaleX(-1);
         }
         &__next:hover{
             transform: scale(1.2);
             translate: 0 -10px;
+            transform: scaleX(-1);
         }
         &__stableboard{
 
             align-self: center;
             display: flex;
-            flex-direction: row;
+            flex-direction: row-reverse;
             align-items: center;
             position: relative;
             margin-top: -150px;
@@ -329,10 +339,12 @@ ul{
         }
         &__next{
             width: 60px;
+            transform: scaleX(-1);
         }
         &__next:hover{
             transform: scale(1.2);
             translate: 0 -10px;
+            transform: scaleX(-1);
         }
         &__stableboard{
    
@@ -451,14 +463,14 @@ ul{
         position: relative;
         width: 80%;
         display: flex;
-        flex-direction: row;
+        flex-direction: row-reverse;
         justify-content: flex-end;
 
         
         &__stablehouse{
             position: absolute;
             top: -140px;
-            left: -50px;
+            left: 500px;
             .house{
                 position: absolute;
                 top: 80px; 
@@ -471,10 +483,12 @@ ul{
         }
         &__next{
             width: 60px;
+            transform: scaleX(-1);
         }
         &__next:hover{
             transform: scale(1.2);
             translate: 0 -10px;
+            transform: scaleX(-1);
         }
         &__stableboard{
             width: 50%;

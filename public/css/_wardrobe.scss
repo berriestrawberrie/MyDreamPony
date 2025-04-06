@@ -1,0 +1,79 @@
+@use 'colors';
+@use 'fonts';
+
+.wrapper{
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-evenly;
+    &__avatar{
+        height: 652px;
+        width: 450px;
+        background-color: colors.$accent;
+        border-radius: 10px;
+        position: relative;
+        border: 1px solid colors.$brown;
+        box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+
+        img{
+            position: absolute;
+            width: 450px;
+        }
+        .race{
+            position: absolute;
+            right: 80px;
+            top: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .raceselect{
+            position: absolute;
+            left: 10px;
+            bottom: 5px;
+        }
+        .race_banner{
+            position: absolute;
+            left: -30px;
+            bottom: -10px;
+        }
+
+    }//END OF AVATAR
+    &__location{
+    align-self: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 280px;
+    height: 450px;
+        .opt{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            margin:0;
+            height: 100px;
+            width: 100px;
+            border-radius: 10px;
+            background-color: colors.$accent;
+            border: 1px solid colors.$brown;
+            box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+        }
+        form{
+            select{
+                display: none;
+            }
+        }
+   }//END OF LOCATION
+
+   &__wearables{
+        background-color: colors.$paper;
+        width: 440px;
+        border-radius: 20px;
+        border: 1px solid colors.$brown;
+        box-shadow: colors.$gold 0px 0px 0px 3px, colors.$brown 0px 0px 0px 4px;
+
+   }
+
+
+}//END OF WRAPPER

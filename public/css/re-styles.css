@@ -45,10 +45,14 @@ h3 {
   font-size: 24px;
 }
 
-h4, h5 {
+h4, h5, h2 {
   padding: 0;
   margin: 0;
   font-family: "Funnel Display", sans-serif;
+}
+
+h2 {
+  text-align: center;
 }
 
 label {
@@ -415,6 +419,22 @@ main {
 }
 /* Large devices (laptops/desktops, 992px and up) */
 /* Extra large devices (large laptops and desktops, 1200px and up) */
+ul {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+ul .blank {
+  border: none;
+  background-color: transparent;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .stable {
@@ -488,8 +508,10 @@ main {
   }
   .topstable__stableboard .boardinfo {
     position: absolute;
-    top: 20px;
+    top: 25px;
     left: 40px;
+    width: 220px;
+    height: 100px;
   }
   .topstable__stableboard .stableboard {
     width: 280px;
@@ -653,8 +675,10 @@ main {
   }
   .topstable__stableboard .boardinfo {
     position: absolute;
-    top: 20px;
-    left: 40px;
+    top: 45px;
+    left: 50px;
+    width: 300px;
+    height: 120px;
   }
   .topstable__stableboard .stableboard {
     width: 400px;
@@ -814,8 +838,10 @@ main {
   }
   .topstable__stableboard .boardinfo {
     position: absolute;
-    top: 40px;
+    top: 50px;
     left: -40px;
+    width: 350px;
+    height: 150px;
   }
   .topstable__stableboard .stableboard {
     width: 500px;
@@ -982,7 +1008,9 @@ main {
   .topstable__stableboard .boardinfo {
     position: absolute;
     top: 40px;
-    left: 80px;
+    left: 50px;
+    width: 325px;
+    height: 130px;
   }
   .topstable__stableboard .stableboard {
     width: 400px;
@@ -3274,4 +3302,103 @@ main {
   .cover:hover + .desc {
     display: block;
   }
+}
+.hexcode {
+  text-transform: uppercase;
+}
+
+.wrapper {
+  width: 90%;
+  max-width: 1200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+.wrapper__avatar {
+  height: 652px;
+  width: 450px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  position: relative;
+  border: 1px solid #713105;
+  -webkit-box-shadow: #FC9B0F 0px 0px 0px 3px, #713105 0px 0px 0px 4px;
+          box-shadow: #FC9B0F 0px 0px 0px 3px, #713105 0px 0px 0px 4px;
+}
+.wrapper__avatar img {
+  position: absolute;
+  width: 450px;
+}
+.wrapper__avatar .race {
+  position: absolute;
+  right: 80px;
+  top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.wrapper__avatar .raceselect {
+  position: absolute;
+  left: 10px;
+  bottom: 5px;
+}
+.wrapper__avatar .race_banner {
+  position: absolute;
+  left: -30px;
+  bottom: -10px;
+}
+.wrapper__location {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 280px;
+  height: 450px;
+}
+.wrapper__location .opt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 40px;
+  margin: 0;
+  height: 100px;
+  width: 100px;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #713105;
+  -webkit-box-shadow: #FC9B0F 0px 0px 0px 3px, #713105 0px 0px 0px 4px;
+          box-shadow: #FC9B0F 0px 0px 0px 3px, #713105 0px 0px 0px 4px;
+}
+.wrapper__location form select {
+  display: none;
+}
+.wrapper__wearables {
+  background-color: #F3E4C7;
+  width: 440px;
+  border-radius: 20px;
+  border: 1px solid #713105;
+  -webkit-box-shadow: #FC9B0F 0px 0px 0px 3px, #713105 0px 0px 0px 4px;
+          box-shadow: #FC9B0F 0px 0px 0px 3px, #713105 0px 0px 0px 4px;
 }

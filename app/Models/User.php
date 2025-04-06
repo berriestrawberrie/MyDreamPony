@@ -25,7 +25,9 @@ class User extends Authenticatable
         'crystalheart',
         'admin',
         'qty',
-        'itemid'
+        'itemid',
+        'stable1',
+        'stable2'
 
     ];
 
