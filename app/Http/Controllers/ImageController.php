@@ -99,17 +99,47 @@ class ImageController extends Controller
             ->header('Cache-Control', 'max-age=2592000');
     }
 
+    public function buildAvatarcolors($avatarid, $imgtype, $hex)
+    {
+
+        //CONVERT TO RGB FORMAT
+        list($huer, $hueg, $hueb) = sscanf($hex, "%02x%02x%02x");
+
+        //PULL THE IMAGE FROM DB BY AVATAR ID
+        $load = Buildavatar::where('avatarid', $avatarid)->get();
+        $img = $load[0][$imgtype];
+        //GENERATE GD IMAGE FROM DB BLOB
+        $gdImg = imagecreatefromstring($img);
+        if ($gdImg !== false) {
+            header('Content-Type: image/png');
+            header('Cache-Control', 'max-age=2592000');
+            imageAlphaBlending($gdImg, true);
+            imageSaveAlpha($gdImg, true);
+            imagefilter($gdImg, IMG_FILTER_COLORIZE, $huer, $hueg, $hueb);
+            imagepng($gdImg);
+            imagedestroy($gdImg);
+        } else {
+            echo 'An error occurred.';
+        }
+    }
     public function buildAvatar($avatarid, $imgtype)
     {
-        //GET THE RIGHT AVATAR IMAGES
-        $rendered_buffer = Buildavatar::where('avatarid', $avatarid)->get();
-        $img = $rendered_buffer[0][$imgtype];
-
-        return response($img)
-            ->header('Content-Type', 'image/png')
-            ->header('Cache-Control', 'max-age=2592000');
+        //PULL THE IMAGE FROM DB BY AVATAR ID
+        $load = Buildavatar::where('avatarid', $avatarid)->get();
+        $img = $load[0][$imgtype];
+        //GENERATE GD IMAGE FROM DB BLOB
+        $gdImg = imagecreatefromstring($img);
+        if ($gdImg !== false) {
+            header('Content-Type: image/png');
+            header('Cache-Control', 'max-age=2592000');
+            imageAlphaBlending($gdImg, true);
+            imageSaveAlpha($gdImg, true);
+            imagepng($gdImg);
+            imagedestroy($gdImg);
+        } else {
+            echo 'An error occurred.';
+        }
     }
-
 
     public function getItem($itemid, $type)
     {

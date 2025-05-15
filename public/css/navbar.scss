@@ -2,31 +2,13 @@
 @use 'fonts';
 
 
-
-nav{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    width: 100%;
-    z-index: 99;
-
-}
 .weather{
-    position: absolute;
-    left: 100px;
-    top: 40px;
-    height: 110px;
-    width: 110px;
     border-radius: 100%;
     background-image: url(http://127.0.0.1:8000/storage/images/sun.png);
     background-size:cover;
     z-index: -1;
 
 }
-
-
-
 
 .goldbanner{
     width: 100%;
@@ -43,74 +25,6 @@ nav{
     height: 4px;
 }
 
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-    .heart{
-        position: absolute;
-        top: -15px;
-        scale: .8;
-        
-    }
-    .alerts{
-        position: absolute;
-        top: 5px;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        img{
-            width: 50px;
-            transition: transform .3s ease-out;
-            display: inline-block;
-        }
-    }
-    
-
-  }
-  
-  /* Small devices (portrait tablets and large phones, 600px and up) */
-  @media only screen and (min-width: 600px) {
-   
-    .heart{
-        position: absolute;
-        top: 2px;
-        scale: 1;
-    }
-    .alerts{
-        position: absolute;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        img{
-            width: 80px;
-            margin-right: 10px;
-        }
-    }
-
-  }
-  
-  /* Medium devices (landscape tablets, 768px and up) */
-  @media only screen and (min-width: 768px) {
-    
-
-  } 
-  
-  /* Large devices (laptops/desktops, 992px and up) */
-  @media only screen and (min-width: 992px) {
-    .alerts{
-        a{
-            transition: transform .3s ease-out;
-            display: inline-block;
-        }
-        a:hover {
-            transform: translate(0, 10px);
-          }
-    }
- 
-  } 
-  
-  /* Extra large devices (large laptops and desktops, 1200px and up) */
-  @media only screen and (min-width: 1200px) {
 .alerts{
     a{
         transition: transform .3s ease-out;
@@ -121,5 +35,4 @@ nav{
       }
 }
    
-  }
 

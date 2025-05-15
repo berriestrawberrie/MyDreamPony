@@ -58,7 +58,6 @@ Route::get('/restock/{npc}', [NPC::class, 'restockShop']);
 Route::get('/unstock/{npc}', [NPC::class, 'unstockShop']);
 
 //USER ROUTES
-Route::post('/basehue', [UserController::class, 'avatardesgin'])->name('basehue');
 Route::get('/re-stable', [UserController::class, 'remyStables'])->name('restable');
 Route::get('/re-stable2', [UserController::class, 'remyStables2'])->name('restable2');
 Route::get('/stable', [UserController::class, 'myStables'])->name('stable');
@@ -112,6 +111,7 @@ Route::get('/trait/{type}/{traitid}', [ImageController::class, 'getTrait']);
 Route::get('/item/{itemid}/{type}', [ImageController::class, 'getItem']);
 Route::get('/breedicon/{breed}', [ImageController::class, 'getBreedIcon']);
 Route::get('/buildavatar/{avatarid}/{imgtype}', [ImageController::class, 'buildAvatar']);
+Route::get('/buildavatarcolors/{avatarid}/{imgtype}/{hex}', [ImageController::class, 'buildAvatarcolors']);
 
 
 

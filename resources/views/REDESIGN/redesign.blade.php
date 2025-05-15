@@ -7,13 +7,11 @@
    @yield('pagecss')
 </head>
 
-<body>
+<body class="">
    <!--INCLUDE THE NAVBAR STYLED IN NAVBAR SCSS-->
    @include('REDESIGN/navbar')
-
    <!--INCLUDE THE USERINFO STYLED IN THE USERINFO SCSS-->
    @include('REDESIGN/userinfo')
-    
 
     <!--STYLED IN STYLES SASS-->
      <!--DISPLAY SUCCESS-->

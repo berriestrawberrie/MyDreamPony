@@ -419,681 +419,51 @@ main {
 }
 /* Large devices (laptops/desktops, 992px and up) */
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-ul {
-  list-style-type: none;
+/*PONY CARD*/
+.card {
+  background-color: #FC9B0F;
+  border-radius: 10px;
+  border: 2px solid #713105;
+}
+.card .cardborder {
+  border: 2px solid #FEC70B;
+  border-radius: 10px;
+}
+.card__status {
+  background-image: url(../images/shine.svg);
+  background-repeat: no-repeat;
+  background-position: right;
+}
+.card__substatus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  height: 20px;
 }
-ul .blank {
-  border: none;
-  background-color: transparent;
+.card__substatus .statusicon {
+  margin-bottom: -15px;
+}
+.card__pony {
+  background-color: rgb(255, 255, 255);
 }
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-  .stable {
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .topstable {
-    position: relative;
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .topstable__stablehouse .house {
-    position: absolute;
-    top: 30px;
-    left: 60px;
-    width: 200px;
-  }
-  .topstable__stablehouse .island {
-    width: 100%;
-    width: 320px;
-  }
-  .topstable__next {
-    width: 60px;
-    margin-top: 10px;
-  }
-  .topstable__next:hover {
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
-    translate: 0 -10px;
-  }
-  .topstable__stableboard {
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    position: relative;
-    margin-top: -90px;
-  }
-  .topstable__stableboard .boardinfo {
-    position: absolute;
-    top: 25px;
-    left: 40px;
-    width: 220px;
-    height: 100px;
-  }
-  .topstable__stableboard .stableboard {
-    width: 280px;
-  }
-  .ponystable {
-    background-color: rgb(255, 255, 255);
-    width: 100%;
-    min-height: 600px;
-    margin-top: -140px;
-    border-radius: 0;
-    padding: 0;
-    padding-top: 165px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-  /*PONY CARD*/
-  .card {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    width: 150px;
-    margin-bottom: 20px;
-    background-color: #FC9B0F;
-    border-radius: 10px;
-    border: 2px solid #713105;
-  }
-  .card .cardborder {
-    border: 2px solid #FEC70B;
-    border-radius: 10px;
-  }
-  .card__status {
-    background-image: url(../images/shine.svg);
-    background-repeat: no-repeat;
-    background-position: right;
-    height: 30px;
-  }
-  .card__status .statusicon {
-    width: 25px;
-    margin-top: -35px;
-    margin-right: -4px;
-  }
-  .card__status h4 {
-    text-align: center;
-    margin-top: -10px;
-  }
-  .card__title {
-    height: 40px;
-    text-align: center;
-  }
-  .card__pony {
-    height: 120px;
-    background-color: rgb(255, 255, 255);
-    width: 99%;
-    margin: 0 auto;
-    border-radius: 8px;
-  }
-  .card__pony img {
-    width: 140px;
-  }
-  .card__substatus {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: end;
-    height: 25px;
-  }
-  .card__substatus .statusicon {
-    width: 30px;
-    margin-bottom: -15px;
-  }
+.card:hover {
+  background-color: #FEC70B;
 }
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-  .stable {
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    margin-top: 100px;
-    max-width: 800px;
-  }
-  .topstable {
-    position: relative;
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .topstable__stablehouse .house {
-    position: absolute;
-    top: 65px;
-    left: 110px;
-    width: 380px;
-  }
-  .topstable__stablehouse .island {
-    width: 600px;
-  }
-  .topstable__next {
-    width: 60px;
-    margin-top: 10px;
-  }
-  .topstable__next:hover {
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
-    translate: 0 -10px;
-  }
-  .topstable__stableboard {
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    position: relative;
-    margin-top: -150px;
-  }
-  .topstable__stableboard .boardinfo {
-    position: absolute;
-    top: 45px;
-    left: 50px;
-    width: 300px;
-    height: 120px;
-  }
-  .topstable__stableboard .stableboard {
-    width: 400px;
-  }
-  .ponystable {
-    background-color: rgb(255, 255, 255);
-    width: 90%;
-    min-height: 600px;
-    margin-top: -140px;
-    border-radius: 20px 20px 0 0;
-    padding: 0;
-    padding-top: 165px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-  /*PONY CARD*/
-  .card {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    width: 150px;
-    margin-bottom: 20px;
-    background-color: #FC9B0F;
-    border-radius: 10px;
-    border: 2px solid #713105;
-  }
-  .card .cardborder {
-    border: 2px solid #FEC70B;
-    border-radius: 10px;
-  }
-  .card__status {
-    background-image: url(../images/shine.svg);
-    background-repeat: no-repeat;
-    background-position: right;
-    height: 30px;
-  }
-  .card__status .statusicon {
-    width: 25px;
-    margin-top: -35px;
-    margin-right: -4px;
-  }
-  .card__status h4 {
-    text-align: center;
-    margin-top: -10px;
-  }
-  .card__title {
-    height: 40px;
-    text-align: center;
-  }
-  .card__pony {
-    height: 120px;
-    background-color: rgb(255, 255, 255);
-    width: 99%;
-    margin: 0 auto;
-    border-radius: 8px;
-  }
-  .card__pony img {
-    width: 140px;
-  }
-  .card__substatus {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: end;
-    height: 20px;
-  }
-  .card__substatus .statusicon {
-    width: 30px;
-    margin-bottom: -15px;
-  }
+.card:hover h4 {
+  color: rgb(255, 253, 243);
 }
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-  .stable {
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    margin-top: 100px;
-    max-width: 800px;
-  }
-  .topstable {
-    position: relative;
-    width: 80%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .topstable__stablehouse .house {
-    position: absolute;
-    top: 85px;
-    left: 140px;
-    width: 430px;
-  }
-  .topstable__stablehouse .island {
-    width: 700px;
-  }
-  .topstable__next {
-    width: 60px;
-  }
-  .topstable__next:hover {
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
-    translate: 0 -10px;
-  }
-  .topstable__stableboard {
-    width: 50%;
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    position: relative;
-    margin-top: -130px;
-  }
-  .topstable__stableboard .boardinfo {
-    position: absolute;
-    top: 50px;
-    left: -40px;
-    width: 350px;
-    height: 150px;
-  }
-  .topstable__stableboard .stableboard {
-    width: 500px;
-  }
-  .ponystable {
-    background-color: rgb(255, 255, 255);
-    width: 100%;
-    min-height: 600px;
-    margin-top: -140px;
-    border-radius: 20px 20px 0 0;
-    padding: 20px;
-    padding-top: 165px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-  /*PONY CARD*/
-  .card {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    width: 250px;
-    margin-bottom: 20px;
-    background-color: #FC9B0F;
-    border-radius: 10px;
-    border: 2px solid #713105;
-  }
-  .card .cardborder {
-    border: 2px solid #FEC70B;
-    border-radius: 10px;
-  }
-  .card__status {
-    background-image: url(../images/shine.svg);
-    background-repeat: no-repeat;
-    background-position: right;
-    height: 30px;
-  }
-  .card__status .statusicon {
-    width: 25px;
-    margin-top: -35px;
-    margin-right: -4px;
-  }
-  .card__status h4 {
-    text-align: center;
-    margin-top: -10px;
-  }
-  .card__title {
-    height: 40px;
-    text-align: center;
-  }
-  .card__pony {
-    height: 200px;
-    background-color: rgb(255, 255, 255);
-    width: 230px;
-    margin: 0 auto;
-    border-radius: 8px;
-  }
-  .card__pony img {
-    width: 230px;
-  }
-  .card__substatus {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: end;
-    height: 25px;
-  }
-  .card__substatus .statusicon {
-    width: 30px;
-    margin-bottom: -15px;
-  }
+.card:hover .statusicon {
+  -webkit-filter: brightness(130%);
+          filter: brightness(130%);
 }
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 1200px) {
-  .stable {
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    margin-top: 50px;
-    max-width: 1200px;
-  }
-  .topstable {
-    position: relative;
-    width: 80%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-  }
-  .topstable__stablehouse {
-    position: absolute;
-    top: -140px;
-    left: -50px;
-  }
-  .topstable__stablehouse .house {
-    position: absolute;
-    top: 80px;
-    left: 120px;
-    width: 280px;
-  }
-  .topstable__stablehouse .island {
-    width: 500px;
-  }
-  .topstable__next {
-    width: 60px;
-  }
-  .topstable__next:hover {
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
-    translate: 0 -10px;
-  }
-  .topstable__stableboard {
-    width: 50%;
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    position: relative;
-    margin-top: 0;
-    margin-bottom: 90px;
-  }
-  .topstable__stableboard .boardinfo {
-    position: absolute;
-    top: 40px;
-    left: 50px;
-    width: 325px;
-    height: 130px;
-  }
-  .topstable__stableboard .stableboard {
-    width: 400px;
-  }
-  .ponystable {
-    background-color: rgb(255, 255, 255);
-    width: 80%;
-    min-height: 600px;
-    margin-top: -30px;
-    border-radius: 20px 20px 0 0;
-    padding: 20px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-  }
-  /*PONY CARD*/
-  .card {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    width: 250px;
-    margin: 5px;
-    background-color: #FC9B0F;
-    border-radius: 10px;
-    border: 2px solid #713105;
-  }
-  .card .cardborder {
-    border: 2px solid #FEC70B;
-    border-radius: 10px;
-  }
-  .card__status {
-    background-image: url(../images/shine.svg);
-    background-repeat: no-repeat;
-    background-position: right;
-    height: 30px;
-  }
-  .card__status .statusicon {
-    width: 25px;
-    margin-top: -35px;
-    margin-right: -4px;
-  }
-  .card__status h4 {
-    text-align: center;
-    margin-top: -10px;
-  }
-  .card__title {
-    height: 40px;
-    text-align: center;
-  }
-  .card__pony {
-    height: 200px;
-    background-color: rgb(255, 255, 255);
-    width: 230px;
-    margin: 0 auto;
-    border-radius: 8px;
-  }
-  .card__pony img {
-    width: 230px;
-  }
-  .card__substatus {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: end;
-    height: 25px;
-  }
-  .card__substatus .statusicon {
-    width: 30px;
-    margin-bottom: -15px;
-  }
-}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .inventory {
@@ -3344,12 +2714,10 @@ ul .blank {
           flex-direction: column;
 }
 .wrapper__avatar .raceselect {
-  position: absolute;
-  left: 10px;
+  left: -20px;
   bottom: 5px;
 }
 .wrapper__avatar .race_banner {
-  position: absolute;
   left: -30px;
   bottom: -10px;
 }
@@ -3401,4 +2769,26 @@ ul .blank {
   border: 1px solid #713105;
   -webkit-box-shadow: #FC9B0F 0px 0px 0px 3px, #713105 0px 0px 0px 4px;
           box-shadow: #FC9B0F 0px 0px 0px 3px, #713105 0px 0px 0px 4px;
+}
+
+.no-js #loader {
+  display: none;
+}
+
+.js #loader {
+  display: block;
+  position: absolute;
+  left: 100px;
+  top: 0;
+}
+
+.se-pre-con {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  z-index: 9999;
+  background: url(http://127.0.0.1:8000/storage/images/Preloader_2.gif) center no-repeat #fff;
 }

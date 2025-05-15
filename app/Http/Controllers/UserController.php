@@ -178,29 +178,4 @@ class UserController extends Controller
 
         return view('explore.' . $npc, compact('user', 'items', 'tags', 'npc'));
     }
-    public function avatardesgin(Request $request)
-    {
-        //READ IN THE BASE HUE REQUEST
-        $hex = $request->basehue;
-        $avatarid = $request->avatarid;
-        list($huer, $hueg, $hueb) = sscanf($hex, "#%02x%02x%02x");
-
-        //GET THE BASE IMAGE
-        $base = Buildavatar::where('avatarid', $avatarid)->get();
-        $base = $base[0]["base"];
-        //PUT DB IMAGE ONTO SERVER
-        file_put_contents(public_path('storage/users/' . '1' . 'avibase.png'), $base);
-        //CONVERT DB IMAGE TO GD IMAGE
-        $imgbase = imagecreatefrompng(public_path('storage/users/' . '1' . 'avibase.png'));
-        imageAlphaBlending($imgbase, true);
-        imageSaveAlpha($imgbase, true);
-
-        //RECOLOR THE BASE TO MATCH THE INPUT HUE
-        imagefilter($imgbase, IMG_FILTER_COLORIZE, $huer, $hueg, $hueb);
-
-        //RESAVE TO SERVER
-        imagepng($imgbase, public_path('storage/users/' . '1' . 'avibase.png'));
-
-        return view('REDESIGN.wardrobe');
-    }
 }
